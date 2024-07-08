@@ -4,7 +4,10 @@
   "main": "index.js",
   "scripts": {
     "build-bulma": "sass --load-path=node_modules my-bulma-project.scss my-bulma-project.css",
-    "start": "npm run build-bulma -- --watch"
+    "start": "npm run build-bulma -- --watch",
+    "watch-themes": "bun run ./scripts/watchThemes.ts",
+    "run-server": "bun run ./scripts/runServer.ts",
+    "dev": "bun run watch-themes & bun run run-server"
   },
   "author": "",
   "license": "ISC",
@@ -15,7 +18,8 @@
     "sass": "^1.77.6"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "concurrently": "^8.2.2"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
