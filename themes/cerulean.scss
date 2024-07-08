@@ -1,0 +1,57 @@
+// Set your brand colors
+$purple: #8a4d76;
+$pink: #ff0000;
+$brown: #757763;
+$beige-light: #d0d1cd;
+$beige-lighter: #eff0eb;
+
+////////////////////////////////////////////////
+// CERULEAN
+////////////////////////////////////////////////
+$orange: #dd5600;
+$yellow: #dab424;
+$green: #73a839;
+$turquoise: #5bc0de;
+$blue: #033c73;
+$purple: #7e5ea3;
+$red: #c71c22;
+$grey: #dbdbdb;
+
+$primary: #2fa4e7 !default;
+$primary-dark: #317eac;
+$warning: $orange;
+$info: #d8dce0;
+
+$info-invert: #333;
+$orange-invert: #fff;
+$warning-invert: $orange-invert;
+
+$family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$title-color: $primary-dark;
+$title-weight: 500;
+$title-weight-bold: 700;
+
+$subtitle-weight: 300;
+$subtitle-strong-color: 500;
+
+$box-shadow: 0 0 0 1px $grey;
+
+$control-height: 2.375em;
+
+// Path to Bulma's sass folder
+@use "bulma/sass" with (
+  // $family-primary: '"Nunito", sans-serif',
+  // $grey-dark: $brown,
+  // $grey-light: $beige-light,
+  $primary: $primary,
+  // $link: $pink,
+  // $control-border-width: 2px,
+  // $input-shadow: none,
+  // $radius: 0px,
+  // $weight-normal: 600,
+  // $weight-light: 600
+);
+
+// Import the Google Font
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700");
