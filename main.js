@@ -1,13 +1,17 @@
 // load-header.js
 document.addEventListener("DOMContentLoaded", function () {
-  fetch("/components/header.html")
-    .then((response) => response.text())
-    .then((data) => {
-      const headerPlaceholder = document.getElementById("header-placeholder");
+  const components = ["header", "buttons"].forEach((component) => {
+    fetch(`/components/${component}.html`)
+      .then((response) => response.text())
+      .then((data) => {
+        const headerPlaceholder = document.getElementById(
+          `${component}-placeholder`
+        );
 
-      if (headerPlaceholder) {
-        headerPlaceholder.innerHTML = data;
-      }
-    })
-    .catch((error) => console.error("Error loading header:", error));
+        if (headerPlaceholder) {
+          headerPlaceholder.innerHTML = data;
+        }
+      })
+      .catch((error) => console.error(`Error loading ${component}:`, error));
+  });
 });
