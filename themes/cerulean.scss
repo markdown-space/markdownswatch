@@ -128,6 +128,25 @@ $new-colors: fn.mergeColorMaps(
   );
 }
 
+.hero.is-primary {
+  .title {
+    color: #fff !important;
+  }
+
+  .subtitle {
+    color: #fff !important;
+  }
+}
+
+.title {
+  font-weight: 500 !important;
+  color: $primary-dark !important;
+}
+
+.subtitle {
+  font-weight: 300 !important;
+}
+
 .button {
   @each $name, $pair in $new-colors {
     $color: nth($pair, 1);
