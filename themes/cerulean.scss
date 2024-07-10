@@ -10,6 +10,7 @@ $brown: #757763;
 $beige-light: #d0d1cd;
 $beige-lighter: #eff0eb;
 $white: #fff;
+$white-bis: iv.$white-bis;
 
 $navbar-breakpoint: iv.$desktop !default;
 
@@ -36,6 +37,7 @@ $light: #fff;
 $dark: #333;
 $text: transparent;
 $link: $blue;
+$border: iv.$grey-dark;
 
 // $info-invert: #333;
 // $orange-invert: #fff;
@@ -112,7 +114,9 @@ $new-colors: fn.mergeColorMaps(
   $primary: $primary,
   $danger: $red,
   $button-weight: 400,
-  $colors: $new-colors
+  $colors: $new-colors,
+  $title-color: $primary-dark,
+  $title-weight: 500
 );
 
 // Import the Google Font
@@ -128,21 +132,6 @@ $new-colors: fn.mergeColorMaps(
   );
 }
 
-.hero.is-primary {
-  .title {
-    color: #fff !important;
-  }
-
-  .subtitle {
-    color: #fff !important;
-  }
-}
-
-.title {
-  font-weight: 500 !important;
-  color: $primary-dark !important;
-}
-
 .subtitle {
   font-weight: 300 !important;
 }
@@ -156,6 +145,38 @@ $new-colors: fn.mergeColorMaps(
       &:not(.is-outlined):not(.is-inverted) {
         @include btn-gradient($color);
       }
+    }
+  }
+}
+
+.select,
+.select select {
+  height: auto !important;
+}
+
+.input,
+.textarea {
+  box-shadow: none;
+}
+
+.card {
+  box-shadow: 0 0 0 1px $border;
+  background-color: $white-bis;
+  .card-header {
+    box-shadow: none;
+    border-bottom: 1px solid $border;
+  }
+}
+
+.notification {
+  @each $name, $pair in $new-colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+    $color-lightning: max((100% - lightness($color)) - 2%, 0%);
+    &.is-#{$name} {
+      background-color: lighten($color, $color-lightning);
+      color: $color;
+      border: 1px solid lighten($color, 30);
     }
   }
 }
@@ -222,6 +243,49 @@ $new-colors: fn.mergeColorMaps(
       .navbar-burger {
         span {
           background-color: $color-invert;
+        }
+      }
+    }
+  }
+}
+
+.hero {
+  .navbar:not(.is-transparent) {
+    @include btn-gradient($primary);
+  }
+  @each $name, $pair in $new-colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+    &.is-#{$name} {
+      .navbar {
+        @include btn-gradient($color);
+      }
+      .navbar-item,
+      .navbar-link {
+        color: $color-invert;
+        &.is-active,
+        &:hover {
+          background-color: darken($color, 2);
+          color: $color-invert;
+        }
+        &:after {
+          border-color: $color-invert;
+        }
+      }
+      .navbar-burger {
+        span {
+          background-color: $color-invert;
+        }
+      }
+      @include mx.until($navbar-breakpoint) {
+        .navbar-menu {
+          background-color: $color;
+          @include btn-gradient($color);
+        }
+      }
+      @include mx.from($navbar-breakpoint) {
+        .navbar-dropdown a.navbar-item:hover {
+          color: $color-invert;
         }
       }
     }
