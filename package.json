@@ -2,6 +2,7 @@
   "name": "bulma-test",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "build-bulma": "sass --load-path=node_modules my-bulma-project.scss my-bulma-project.css",
     "start": "npm run build-bulma -- --watch",
