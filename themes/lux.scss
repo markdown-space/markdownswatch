@@ -1,0 +1,246 @@
+@use "baseStyles.scss";
+@use "./utilities/functions.scss" as fn;
+@use "./utilities/initial-variables.scss" as iv;
+@use "./utilities/mixins.scss" as mx;
+
+////////////////////////////////////////////////
+// LUX
+////////////////////////////////////////////////
+$grey: #7f888f;
+$grey-light: lighten($grey, 10%);
+$grey-lighter: lighten($grey, 20%);
+$navbar-breakpoint: iv.$desktop !default;
+
+$white: #fff;
+$green: #4bbf73;
+$blue: #1f9bcf;
+$red: #d9534f;
+$light: #fff;
+$dark: #333;
+$text: transparent;
+$link: $blue;
+$border: iv.$grey-dark;
+$warning: iv.$yellow;
+$info: $blue;
+$success: $green;
+$danger: $red;
+
+$primary: #222 !default;
+$primary-dark: #222 !default;
+$link: $grey;
+
+$button-focus-border-color: transparent;
+
+$family-sans-serif: "Nunito Sans", -apple-system, system-ui, BlinkMacSystemFont,
+  "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$body-size: 14px;
+
+$radius: 0;
+$radius-small: $radius;
+
+$navbar-height: 5rem;
+$navbar-background-color: $primary;
+$navbar-item-color: $grey;
+$navbar-item-hover-color: #fff;
+$navbar-item-active-color: #fff;
+$navbar-item-hover-background-color: transparent;
+$navbar-item-active-background-color: transparent;
+$navbar-dropdown-arrow: #fff;
+$navbar-dropdown-background-color: $primary;
+$navbar-dropdown-border-top: 1px solid lighten($primary, 10);
+$navbar-divider-background-color: lighten($primary, 10);
+$navbar-dropdown-item-active-color: #fff;
+$navbar-dropdown-item-hover-color: $grey-lighter;
+$navbar-dropdown-item-hover-background-color: transparent;
+$navbar-dropdown-item-active-background-color: transparent;
+
+$bulmaswatch-import-font: true !default;
+
+$box-shadow: 0 0 0 1px $grey-lighter;
+
+$control-height: 2.5em;
+
+// Lists and maps
+$custom-colors: null !default;
+$custom-shades: null !default;
+$new-colors: fn.mergeColorMaps(
+  (
+    "white": (
+      iv.$white,
+      iv.$black,
+    ),
+    "black": (
+      iv.$black,
+      iv.$white,
+    ),
+    "light": (
+      $light,
+      $dark,
+    ),
+    "dark": (
+      $dark,
+      $light,
+    ),
+    "text": (
+      $text,
+      $dark,
+    ),
+    "primary": (
+      $primary,
+      $light,
+    ),
+    "link": (
+      $link,
+      $light,
+    ),
+    "info": (
+      $info,
+      $light,
+    ),
+    "success": (
+      $success,
+      $light,
+    ),
+    "warning": (
+      $warning,
+      $dark,
+    ),
+    "danger": (
+      $danger,
+      $light,
+    ),
+  ),
+  $custom-colors
+);
+
+// Path to Bulma's sass folder
+@use "bulma/sass" with (
+  $primary: $primary,
+  $danger: $red,
+  $button-weight: 400,
+  $colors: $new-colors,
+  $title-color: $primary-dark,
+  $title-weight: 500,
+  $radius: $radius,
+  $radius-small: $radius-small,
+  $body-size: $body-size
+);
+
+body {
+  // font-weight: 300;
+  letter-spacing: 1px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.button {
+  transition: all 200ms ease;
+  text-transform: uppercase;
+
+  &.is-active,
+  &.is-focused,
+  &:active,
+  &:focus {
+    box-shadow: 0 0 0 2px rgba($button-focus-border-color, 0.25);
+  }
+  @each $name, $pair in $new-colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &.is-#{$name} {
+      &.is-active,
+      &.is-focused,
+      &:active,
+      &:focus {
+        border-color: $color;
+        box-shadow: 0 0 0 2px rgba($color, 0.25);
+      }
+    }
+  }
+}
+
+.input,
+.textarea {
+  transition: all 200ms ease;
+  box-shadow: none;
+}
+
+.progress,
+.tag {
+  border-radius: $radius;
+}
+
+.card {
+  box-shadow: 0 0 0 1px $grey-lighter;
+
+  .card-header {
+    box-shadow: 0 1px 0 0 $grey-lighter;
+  }
+}
+
+.navbar {
+  .navbar-link,
+  .navbar-item {
+    text-transform: uppercase;
+    font-weight: bold;
+
+    h1 {
+      &.title {
+        color: #fff !important;
+      }
+    }
+  }
+
+  .has-dropdown .navbar-item {
+    text-transform: none;
+  }
+
+  strong {
+    color: $white;
+  }
+
+  @include mx.until($navbar-breakpoint) {
+    .navbar-menu {
+      background-color: $primary;
+      border-radius: $radius;
+    }
+  }
+}
+.hero {
+  .navbar {
+    background-color: $navbar-background-color;
+  }
+
+  @each $name, $pair in $new-colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &.is-#{$name} {
+      .navbar {
+        background-color: $color;
+      }
+    }
+  }
+}
+
+.notification {
+  @each $name, $pair in $new-colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &.is-#{$name} {
+      a:not(.button) {
+        color: $color-invert;
+        text-decoration: underline;
+      }
+    }
+  }
+}
