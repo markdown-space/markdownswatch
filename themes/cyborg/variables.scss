@@ -1,0 +1,93 @@
+@import '../utilities/initial-variables.scss';
+@import '../utilities/derived-variables.scss';
+@import '../utilities/mixins.scss';
+@import '../utilities/functions.scss';
+@import '../utilities/css-variables.scss';
+
+////////////////////////////////////////////////
+// Cyborg
+////////////////////////////////////////////////
+$grey-accent: hsl(0, 0%, 14%);
+$grey-darker: hsl(0, 0%, 21%);
+$grey-dark: hsl(0, 0%, 29%);
+$grey: hsl(0, 0%, 48%);
+$grey-light: hsl(0, 0%, 71%);
+$grey-lighter: hsl(0, 0%, 86%);
+
+$subtitle-color: $white-ter;
+$subtitle-strong-color: $white-ter;
+
+$text: $white;
+$text-light: lighten($text, 10);
+$text-strong: darken($text, 5);
+
+$primary: #2a9fd6;
+$primary-dark: darken($primary, 20) !default;
+$primary-light: #fff !default;
+
+$danger: $orange;
+$background: #000 !default;
+
+$radius: 4px;
+
+$navbar-background-color: $primary;
+$navbar-item-hover-color: $primary;
+$navbar-item-active-color: $primary;
+$navbar-dropdown-item-hover-color: $primary;
+$navbar-dropdown-item-active-color: $primary;
+
+$bulmaswatch-import-font: true !default;
+
+$control-height: 2.5em;
+
+$custom-colors: null !default;
+$custom-shades: null !default;
+$colors: mergeColorMaps(
+  (
+    "white": (
+      $white,
+      $black,
+    ),
+    "black": (
+      $black,
+      $white,
+    ),
+    "light": (
+      $light,
+      $dark,
+    ),
+    "dark": (
+      $dark,
+      $light,
+    ),
+    "text": (
+      $text,
+      $dark,
+    ),
+    "primary": (
+      $primary,
+      $light,
+    ),
+    "link": (
+      $link,
+      $light,
+    ),
+    "info": (
+      $info,
+      $dark,
+    ),
+    "success": (
+      $success,
+      $light,
+    ),
+    "warning": (
+      $warning,
+      $light,
+    ),
+    "danger": (
+      $danger,
+      $light,
+    ),
+  ),
+  $custom-colors
+);

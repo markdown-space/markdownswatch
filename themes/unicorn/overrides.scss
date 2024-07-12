@@ -1,0 +1,148 @@
+@import '../utilities/initial-variables.scss';
+@import '../utilities/derived-variables.scss';
+@import '../utilities/mixins.scss';
+@import '../utilities/functions.scss';
+@import '../utilities/css-variables.scss';
+
+////////////////////////////////////////////////
+// UNICORN
+////////////////////////////////////////////////
+$grey-darker: #363636;
+$grey-dark: #373a3c;
+$grey: #55595c;
+$grey-light: #818a91;
+$grey-lighter: #d9dee2;
+
+$orange: #f0ad4e;
+$yellow: #ffd500;
+$green: #02b875;
+$blue: #45b2d3;
+$red: #d9534f;
+
+$link: #ff69b4; // Hot Pink for unicorn theme
+$primary: #ff6ec7; // Light Pink for unicorn theme
+$danger: #ff69b4; // Hot Pink for unicorn theme
+
+$subtitle-color: $grey;
+
+$family-heading: "Raleway", "Lucida Grande", "Lucida Sans Unicode",
+  "Lucida Sans", Geneva, Arial, sans-serif;
+
+$body-size: 15px;
+
+$family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+
+$navbar-height: 5rem;
+$navbar-item-hover-color: $link;
+$navbar-item-hover-background-color: transparent;
+$navbar-item-active-color: $link;
+$navbar-item-active-background-color: transparent;
+
+$navbar-dropdown-item-hover-color: $link;
+$navbar-dropdown-item-hover-background-color: transparent;
+$navbar-dropdown-item-active-color: $link;
+$navbar-dropdown-item-active-background-color: transparent;
+
+$bulmaswatch-import-font: true !default;
+
+$box-shadow: 0 0 1px $grey-light;
+
+$control-height: 2.273em;
+
+// Unicorn-specific colors
+$unicorn-pink: #ff6ec7;
+$unicorn-purple: #b19cd9;
+$unicorn-blue: #89cff0;
+$unicorn-green: #77dd77;
+$unicorn-yellow: #fdfd96;
+$unicorn-rainbow: linear-gradient(45deg, #ff6ec7, #b19cd9, #89cff0, #77dd77, #fdfd96);
+
+// Updated color map
+$colors: mergeColorMaps(
+  (
+    "white": (
+      $white,
+      $black,
+    ),
+    "black": (
+      $black,
+      $white,
+    ),
+    "light": (
+      $light,
+      $dark,
+    ),
+    "dark": (
+      $dark,
+      $light,
+    ),
+    "text": (
+      $text,
+      $dark,
+    ),
+    "primary": (
+      $primary,
+      $light,
+    ),
+    "link": (
+      $link,
+      $light,
+    ),
+    "info": (
+      $info,
+      $dark,
+    ),
+    "success": (
+      $success,
+      $light,
+    ),
+    "warning": (
+      $warning,
+      $light,
+    ),
+    "danger": (
+      $danger,
+      $light,
+    ),
+    "unicorn-pink": (
+      $unicorn-pink,
+      $white,
+    ),
+    "unicorn-purple": (
+      $unicorn-purple,
+      $white,
+    ),
+    "unicorn-blue": (
+      $unicorn-blue,
+      $white,
+    ),
+    "unicorn-green": (
+      $unicorn-green,
+      $white,
+    ),
+    "unicorn-yellow": (
+      $unicorn-yellow,
+      $black,
+    ),
+  ),
+  $custom-colors
+);
+
+// Example of using unicorn theme
+body {
+  font-family: $family-serif;
+  background: $unicorn-rainbow;
+  color: $primary;
+}
+
+.navbar {
+  background-color: $primary;
+  .navbar-item {
+    &:hover {
+      color: $navbar-item-hover-color;
+    }
+    &.is-active {
+      color: $navbar-item-active-color;
+    }
+  }
+}
