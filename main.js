@@ -26,13 +26,19 @@ const components = [
         headerPlaceholder.innerHTML = data;
       }
 
-      notifications();
-      createProgressBars();
-      createTags();
-      createHeroSections();
+      if (componentCreators?.[component]) {
+        componentCreators?.[component]?.();
+      }
     })
     .catch((error) => console.error(`Error loading ${component}:`, error));
 });
+
+const componentCreators = {
+  notifications: notifications,
+  progress: createProgressBars,
+  tags: createTags,
+  hero: createHeroSections,
+};
 
 function notifications() {
   const notificationContainer = document.getElementById(
