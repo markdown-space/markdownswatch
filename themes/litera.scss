@@ -1,39 +1,209 @@
-@use "baseStyles.scss";
-
 @use "./utilities/functions.scss" as fn;
-@use "./utilities/initial-variables.scss" as iv;
-@use "./utilities/mixins.scss" as mx;
 @use "./litera/variables.scss" as v;
 @use "./litera/derived.scss" as dv;
 @use "./litera/fonts.scss" as f;
 
+$gap: 32px;
+$tablet: 769px;
+$desktop: calc(960px + 2 * $gap);
+$widescreen: calc(1152px + 2 * $gap);
+$widescreen-enabled: true;
+$fullhd: calc(1344px + 2 * $gap);
+$fullhd-enabled: true;
+
 @use "bulma/sass" with (
-  $button-weight: 400,
-  $colors: dv.$colors,
-  $title-weight: 300,
-  $radius: v.$radius,
-  $radius-small: v.$radius-small,
-  $body-size: v.$body-size,
-
-  $family-primary: f.$family-primary,
-  $family-sans-serif: f.$family-sans-serif,
-  $family-code: f.$family-code,
-
-  $primary: v.$primary,
-  $link: v.$link,
-  $info: dv.$info,
-
-  $success: dv.$success,
-  $warning: dv.$warning,
-  $danger: dv.$danger,
-
-  $black: dv.$black,
-  $grey-darker: v.$grey-darker,
-  $grey-dark: v.$grey-dark,
-  $grey: v.$grey,
-  $grey-light: v.$grey-light,
-  $grey-lighter: v.$grey-lighter,
-  $white: v.$white
+  $black: hsl(221, 14%, 4%),
+  $black-bis: hsl(221, 14%, 9%),
+  $black-ter: hsl(221, 14%, 14%),
+  $grey-darker: hsl(221, 14%, 21%),
+  $grey-dark: hsl(221, 14%, 29%),
+  $grey: hsl(221, 14%, 48%),
+  $grey-light: hsl(221, 14%, 71%),
+  $grey-lighter: hsl(221, 14%, 86%),
+  $grey-lightest: hsl(221, 14%, 93%),
+  $white-ter: hsl(221, 14%, 96%),
+  $white-bis: hsl(221, 14%, 98%),
+  $white: hsl(221, 14%, 100%),
+  $orange: hsl(14, 100%, 53%),
+  $yellow: hsl(42, 100%, 53%),
+  $green: hsl(153, 53%, 53%),
+  $turquoise: hsl(171, 100%, 41%),
+  $cyan: hsl(198, 100%, 70%),
+  $blue: hsl(233, 100%, 63%),
+  $purple: hsl(271, 100%, 71%),
+  $red: hsl(348, 100%, 70%),
+  $family-sans-serif: "Inter",
+  $family-monospace: "Inconsolata",
+  $render-mode: optimizeLegibility,
+  $size-1: 3rem,
+  $size-2: 2.5rem,
+  $size-3: 2rem,
+  $size-4: 1.5rem,
+  $size-5: 1.25rem,
+  $size-6: 1rem,
+  $size-7: 0.75rem,
+  $weight-light: 300,
+  $weight-normal: 400,
+  $weight-medium: 500,
+  $weight-semibold: 600,
+  $weight-bold: 700,
+  $weight-extrabold: 800,
+  $block-spacing: 1.5rem,
+  $aspect-ratios: (
+    (1, 1),
+    (5, 4),
+    (4, 3),
+    (3, 2),
+    (5, 3),
+    (16, 9),
+    (2, 1),
+    (3, 1),
+    (4, 5),
+    (3, 4),
+    (2, 3),
+    (3, 5),
+    (9, 16),
+    (1, 2),
+    (1, 3),
+  ),
+  $gap: 32px,
+  $tablet: 769px,
+  $desktop: calc(960px + 2 * $gap),
+  $widescreen: calc(1152px + 2 * $gap),
+  $widescreen-enabled: true,
+  $fullhd: calc(1344px + 2 * $gap),
+  $fullhd-enabled: true,
+  $breakpoints: (
+    "mobile": (
+      "until": $tablet,
+    ),
+    "tablet": (
+      "from": $tablet,
+    ),
+    "tablet-only": (
+      "from": $tablet,
+      "until": $desktop,
+    ),
+    "touch": (
+      "from": $desktop,
+    ),
+    "desktop": (
+      "from": $desktop,
+    ),
+    "desktop-only": (
+      "from": $desktop,
+      "until": $widescreen,
+    ),
+    "until-widescreen": (
+      "until": $widescreen,
+    ),
+    "widescreen": (
+      "from": $widescreen,
+    ),
+    "widescreen-only": (
+      "from": $widescreen,
+      "until": $fullhd,
+    ),
+    "until-fullhd": (
+      "until": $fullhd,
+    ),
+    "fullhd": (
+      "from": $fullhd,
+    ),
+  ),
+  $easing: ease-out,
+  $radius-small: 0.25rem,
+  $radius: 0.375rem,
+  $radius-medium: 0.5em,
+  $radius-large: 0.75rem,
+  $radius-rounded: 9999px,
+  $speed: 86ms,
+  $variable-columns: true,
+  $rtl: false,
+  $class-prefix: "",
+  $cssvars-prefix: "bulma-",
+  $helpers-prefix: "is-",
+  $helpers-has-prefix: "has-",
+  $scheme-main: v.$white,
+  $scheme-main-bis: v.$white-bis,
+  $scheme-main-ter: v.$white-ter,
+  $scheme-invert: v.$black,
+  $scheme-invert-bis: v.$black-bis,
+  $scheme-invert-ter: v.$black-ter,
+  $text: v.$grey-dark,
+  $text-invert: fn.bulmaFindColorInvert(dv.$text),
+  $text-weak: v.$grey,
+  $text-strong: v.$grey-darker,
+  $primary: v.$turquoise,
+  $info: v.$cyan,
+  $success: v.$green,
+  $warning: v.$yellow,
+  $danger: v.$red,
+  $light: v.$white-ter,
+  $dark: v.$grey-darker,
+  $link: v.$blue,
+  $background: v.$white-ter,
+  $border: v.$grey-lighter,
+  $border-weak: v.$grey-lightest,
+  $code: v.$red,
+  $code-background: dv.$background,
+  $pre: dv.$text,
+  $pre-background: dv.$background,
+  $family-primary: v.$family-sans-serif,
+  $family-secondary: v.$family-sans-serif,
+  $family-code: v.$family-monospace,
+  $size-small: v.$size-7,
+  $size-normal: v.$size-6,
+  $size-medium: v.$size-5,
+  $size-large: v.$size-4,
+  $shadow-color: v.$black,
+  $custom-colors: null,
+  $custom-shades: null,
+  $colors:
+    fn.mergeColorMaps(
+      (
+        "white": (
+          v.$white,
+          v.$black,
+        ),
+        "black": (
+          v.$black,
+          v.$white,
+        ),
+        "light": (
+          dv.$light,
+          dv.$dark,
+        ),
+        "dark": (
+          dv.$dark,
+          dv.$light,
+        ),
+        "text": dv.$text,
+        "primary": v.$primary,
+        "link": dv.$link,
+        "info": dv.$info,
+        "success": dv.$success,
+        "warning": dv.$warning,
+        "danger": dv.$danger,
+      ),
+      dv.$custom-colors
+    ),
+  $shades:
+    fn.mergeColorMaps(
+      (
+        "black-bis": v.$black-bis,
+        "black-ter": v.$black-ter,
+        "grey-darker": v.$grey-darker,
+        "grey-dark": v.$grey-dark,
+        "grey": v.$grey,
+        "grey-light": v.$grey-light,
+        "grey-lighter": v.$grey-lighter,
+        "white-ter": v.$white-ter,
+        "white-bis": v.$white-bis,
+      ),
+      dv.$custom-shades
+    ),
+  $sizes: v.$size-1 v.$size-2 v.$size-3 v.$size-4 v.$size-5 v.$size-6 v.$size-7
 );
 
 @import "./litera/overrides.scss";
