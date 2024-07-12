@@ -1,7 +1,9 @@
-@import '../utilities/initial-variables.scss';
-@import '../utilities/mixins.scss';
-@import '../utilities/functions.scss';
-@import '../utilities/css-variables.scss';
+@import "../utilities/initial-variables.scss";
+@import "../utilities/derived-variables.scss";
+@import "../utilities/mixins.scss";
+@import "../utilities/functions.scss";
+@import "../utilities/css-variables.scss";
+
 ////////////////////////////////////////////////
 // COSMO
 ////////////////////////////////////////////////
@@ -48,3 +50,52 @@ $box-shadow: 0 0 0 1px $grey;
 $card-shadow: 0 0 0 1px $grey;
 
 $control-height: 2.6667em;
+$colors: mergeColorMaps(
+  (
+    "white": (
+      $white,
+      $black,
+    ),
+    "black": (
+      $black,
+      $white,
+    ),
+    "light": (
+      $light,
+      $dark,
+    ),
+    "dark": (
+      $dark,
+      $light,
+    ),
+    "text": (
+      $text,
+      $dark,
+    ),
+    "primary": (
+      $primary,
+      $light,
+    ),
+    "link": (
+      $link,
+      $light,
+    ),
+    "info": (
+      $info,
+      $dark,
+    ),
+    "success": (
+      $success,
+      $light,
+    ),
+    "warning": (
+      $warning,
+      $light,
+    ),
+    "danger": (
+      $danger,
+      $light,
+    ),
+  ),
+  $custom-colors
+);
