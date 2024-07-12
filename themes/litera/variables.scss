@@ -1,12 +1,11 @@
 @import "../utilities/initial-variables.scss";
-@import "../utilities/mixins.scss";
-@import "../utilities/functions.scss";
-@import "../utilities/css-variables.scss";
+@import "./fonts.scss";
 //if you import the variables.scss file from the theme, you can use the variables without the $v. prefix
-
 ////////////////////////////////////////////////
 // LITERA
 ////////////////////////////////////////////////
+
+/* Color Variables */
 $grey-darker: #363636;
 $grey-dark: #373a3c;
 $grey: #55595c;
@@ -16,35 +15,67 @@ $grey-lighter: #d9dee2;
 $orange: #f0ad4e;
 $yellow: #ffd500;
 $green: #02b875;
-$blue: #45b2d3;
+$blue: #4582ec;
+$turquoise: #45b2d3;
 $red: #d9534f;
 
-$link: #4582ec;
-$primary: $blue;
-$danger: $orange;
-
-$subtitle-color: $grey;
-
-$family-heading: "Raleway", "Lucida Grande", "Lucida Sans Unicode",
-  "Lucida Sans", Geneva, Arial, sans-serif;
-
-$body-size: 15px;
-
-$family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
-
-$navbar-height: 5rem;
-$navbar-item-hover-color: $link;
-$navbar-item-hover-background-color: transparent;
-$navbar-item-active-color: $link;
-$navbar-item-active-background-color: transparent;
-
-$navbar-dropdown-item-hover-color: $link;
-$navbar-dropdown-item-hover-background-color: transparent;
-$navbar-dropdown-item-active-color: $link;
-$navbar-dropdown-item-active-background-color: transparent;
-
-$bulmaswatch-import-font: true !default;
-
-$box-shadow: 0 0 1px $grey-light;
-
-$control-height: 2.273em;
+//initial variables
+//   $black:
+//   $black-bis:
+//   $black-ter:
+//   $grey-darker:
+//   $grey-dark:
+//   $grey:
+//   $grey-light:
+//   $grey-lighter:
+//   $grey-lightest:
+//   $white-ter:
+//   $white-bis:
+//   $white:
+//   $orange:
+//   $yellow:
+//   $green:
+//   $turquoise:
+//   $cyan:
+//   $blue:
+//   $purple:
+//   $red:
+//   $family-sans-serif:
+//   $family-monospace:
+//   $render-mode:
+//   $size-1:
+//   $size-2:
+//   $size-3:
+//   $size-4:
+//   $size-5:
+//   $size-6:
+//   $size-7:
+//   $weight-light:
+//   $weight-normal:
+//   $weight-medium:
+//   $weight-semibold:
+//   $weight-bold:
+//   $weight-extrabold:
+//   $block-spacing:
+//   $aspect-ratios:
+//   $gap:
+//   $tablet:
+//   $desktop:
+//   $widescreen:
+//   $widescreen-enabled:
+//   $fullhd:
+//   $fullhd-enabled:
+//   $breakpoints:
+//   $easing:
+//   $radius-small:
+//   $radius:
+//   $radius-medium:
+//   $radius-large:
+//   $radius-rounded:
+//   $speed:
+//   $variable-columns:
+//   $rtl:
+//   $class-prefix:
+//   $cssvars-prefix:
+//   $helpers-prefix:
+//   $helpers-has-prefix:
