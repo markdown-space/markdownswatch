@@ -3,8 +3,8 @@
 @use "./utilities/functions.scss" as fn;
 @use "./utilities/initial-variables.scss" as iv;
 @use "./utilities/mixins.scss" as mx;
-@use './cosmo/variables.scss' as v;
-@use './cosmo/fonts.scss' as f;
+@use "./cosmo/variables.scss" as v;
+@use "./cosmo/fonts.scss" as f;
 
 @use "bulma/sass" with (
   $family-primary: f.$family-serif,
