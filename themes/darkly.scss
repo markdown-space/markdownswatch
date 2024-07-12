@@ -1,0 +1,43 @@
+@use "baseStyles.scss";
+
+@use "./utilities/functions.scss" as fn;
+@use "./utilities/initial-variables.scss" as iv;
+@use "./utilities/mixins.scss" as mx;
+@use "./darkly/variables.scss" as v;
+@use "./darkly/fonts.scss" as f;
+
+@use "bulma/sass" with (
+  $family-primary: v.$family-primary,
+  $family-sans-serif: v.$family-sans-serif,
+  $family-code: v.$family-code,
+
+  $primary: v.$primary,
+  $link: v.$link,
+  $info: v.$info,
+  $success: v.$success,
+  $warning: v.$warning,
+  $danger: v.$danger,
+
+  $black: v.$black,
+  $grey-darker: v.$grey-darker,
+  $grey-dark: v.$grey-dark,
+  $grey: v.$grey,
+  $grey-light: v.$grey-light,
+  $grey-lighter: v.$grey-lighter,
+  $white: v.$white,
+
+  $box-color: v.$box-color,
+  $border: v.$border,
+
+  $background: v.$background,
+  $code-background: v.$code-background,
+
+  $table-color: v.$table-color,
+
+  $control-radius: v.$control-radius,
+  $button-border-color: v.$button-border-color
+);
+
+@import "./darkly/overrides.scss";
+
+@import "./utilities/dark-mode.scss";

@@ -1,0 +1,39 @@
+@use "baseStyles.scss";
+
+@use "./utilities/functions.scss" as fn;
+@use "./utilities/initial-variables.scss" as iv;
+@use "./utilities/mixins.scss" as mx;
+@use "./litera/variables.scss" as v;
+@use "./litera/derived.scss" as dv;
+@use "./litera/fonts.scss" as f;
+
+@use "bulma/sass" with (
+  $button-weight: 400,
+  $colors: dv.$colors,
+  $title-weight: 300,
+  $radius: v.$radius,
+  $radius-small: v.$radius-small,
+  $body-size: v.$body-size,
+
+  $family-primary: f.$family-primary,
+  $family-sans-serif: f.$family-sans-serif,
+  $family-code: f.$family-code,
+
+  $primary: v.$primary,
+  $link: v.$link,
+  $info: dv.$info,
+
+  $success: dv.$success,
+  $warning: dv.$warning,
+  $danger: dv.$danger,
+
+  $black: dv.$black,
+  $grey-darker: v.$grey-darker,
+  $grey-dark: v.$grey-dark,
+  $grey: v.$grey,
+  $grey-light: v.$grey-light,
+  $grey-lighter: v.$grey-lighter,
+  $white: v.$white
+);
+
+@import "./litera/overrides.scss";
