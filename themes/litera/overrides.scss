@@ -1,13 +1,12 @@
 // Overrides
-@import './variables';
-@import '../utilities/initial-variables.scss';
-@import '../utilities/derived-variables.scss';
-@import '../utilities/mixins.scss';
-@import '../utilities/functions.scss';
-@import '../utilities/css-variables.scss';
-  // Overrides
+@import "./variables";
+@import "../utilities/initial-variables.scss";
+@import "../utilities/derived-variables.scss";
+@import "../utilities/mixins.scss";
+@import "../utilities/functions.scss";
+@import "../utilities/css-variables.scss";
 // Overrides
-
+// Overrides
 
 a {
   transition: all 200ms ease;
@@ -117,4 +116,7 @@ blockquote {
     box-shadow: none;
     border-bottom: 1px solid $grey-lighter;
   }
+}
+
+:root {
 }
