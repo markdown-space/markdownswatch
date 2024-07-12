@@ -1,4 +1,5 @@
 import { serve } from "bun";
+import chalk from "chalk";
 
 const port = 3000;
 
@@ -19,4 +20,4 @@ serve({
   },
 });
 
-console.log(`Server running at http://localhost:${port}`);
+console.log(chalk.white(`Server running at http://localhost:${port}`));

@@ -1,8 +1,10 @@
 import { watch } from "fs/promises";
 import { compile } from "sass";
-import { join, basename } from "path";
+import { join, basename, relative } from "path";
 import chalk from "chalk";
 import { mkdir, writeFile, readdir } from "fs/promises";
+
+const cwd = process.cwd();
 
 const themesDir = new URL("../themes", import.meta.url).pathname;
 const outputDir = new URL("../css", import.meta.url).pathname;
@@ -10,7 +12,7 @@ const outputDir = new URL("../css", import.meta.url).pathname;
 // Ensure the output directory exists
 async function ensureOutputDir() {
   try {
-    console.log(chalk.blue("Ensuring the out directory exists..."));
+    console.log(chalk.blue("Ensuring the output directory exists"));
     await mkdir(outputDir, { recursive: true });
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code !== "EEXIST") {
@@ -22,7 +24,7 @@ async function ensureOutputDir() {
 async function compileSass(file: string): Promise<void> {
   const baseName = basename(file, ".scss");
   const outFile = join(outputDir, `${baseName}.css`);
-  console.log(chalk.blue("Compiling sass..."));
+  console.log(chalk.magentaBright("Compiling SCSS "));
 
   try {
     const result = compile(file, {
@@ -32,7 +34,11 @@ async function compileSass(file: string): Promise<void> {
 
     await writeFile(outFile, result.css);
 
-    console.log(chalk.green.bold(`Compiled ${file} to ${outFile}`));
+    console.log(
+      chalk.green.bold(
+        `Compiled /${relative(cwd, file)} to /${relative(cwd, outFile)}`
+      )
+    );
   } catch (error) {
     console.error(
       chalk.red(`Error compiling ${file}:`, (error as Error).message)
@@ -41,7 +47,9 @@ async function compileSass(file: string): Promise<void> {
 }
 
 async function watchDirectory(): Promise<void> {
-  console.log(chalk.cyan(`Watching for SCSS changes in ${themesDir}`));
+  console.log(
+    chalk.cyan(`Watching for SCSS  changes in /${relative(cwd, themesDir)}`)
+  );
 
   const watcher = watch(themesDir, { recursive: true });
 
@@ -65,7 +73,11 @@ async function watchDirectory(): Promise<void> {
 
       if (event.filename && event.filename.endsWith(".scss")) {
         const file = join(themesDir, event.filename);
-        console.log(chalk.blue(`File ${file} has been changed`));
+
+        console.log(
+          chalk.blue(`File /${relative(cwd, file)} has been changed`)
+        );
+
         await compileSass(file);
       }
     }
