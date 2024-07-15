@@ -23,8 +23,9 @@ async function ensureOutputDir() {
 
 async function compileSass(file: string): Promise<void> {
   const baseName = basename(file, ".scss");
+
   const outFile = join(outputDir, `${baseName}.css`);
-  console.log(chalk.magentaBright("Compiling SCSS "));
+  console.log(chalk.magentaBright(`Compiling ${baseName} `));
 
   try {
     const result = compile(file, {
@@ -34,11 +35,7 @@ async function compileSass(file: string): Promise<void> {
 
     await writeFile(outFile, result.css);
 
-    console.log(
-      chalk.green.bold(
-        `Compiled /${relative(cwd, file)} to /${relative(cwd, outFile)}`
-      )
-    );
+    console.log(chalk.green.bold(`Compiled ${baseName}`));
   } catch (error) {
     console.error(
       chalk.red(`Error compiling ${file}:`, (error as Error).message)
