@@ -10,7 +10,7 @@ $brown: #757763;
 $beige-light: #d0d1cd;
 $beige-lighter: #eff0eb;
 $white: #fff;
-$white-bis: iv.$white-bis;
+$white-bis: #fafafa;
 
 $navbar-breakpoint: iv.$desktop !default;
 
@@ -37,24 +37,9 @@ $light: #fff;
 $dark: #333;
 $text: transparent;
 $link: $blue;
-$border: iv.$grey-dark;
-
-// $info-invert: #333;
-// $orange-invert: #fff;
-// $warning-invert: $orange-invert;
+$border: #dbdbdb;
 
 // $family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-// $title-color: $primary-dark;
-// $title-weight: 500;
-// $title-weight-bold: 700;
-
-// $subtitle-weight: 300;
-// $subtitle-strong-color: 500;
-
-// $box-shadow: 0 0 0 1px $grey;
-
-// $control-height: 2.375em;
 
 // Lists and maps
 $custom-colors: null !default;
@@ -116,7 +101,11 @@ $new-colors: fn.mergeColorMaps(
   $button-weight: 400,
   $colors: $new-colors,
   $title-color: $primary-dark,
-  $title-weight: 500
+  $title-weight: 500,
+  $subtitle-weight: 300,
+  $subtitle-strong-color: 500,
+  $box-shadow: 0 0 0 1px $grey,
+  $control-height: 2.375em
 );
 
 // Import the Google Font
@@ -162,10 +151,17 @@ $new-colors: fn.mergeColorMaps(
 .card {
   box-shadow: 0 0 0 1px $border;
   background-color: $white-bis;
+  border-radius: 0;
+
   .card-header {
     box-shadow: none;
     border-bottom: 1px solid $border;
   }
+}
+
+.card-image:first-child img {
+  border-radius: 0;
+  background: red;
 }
 
 .notification {
