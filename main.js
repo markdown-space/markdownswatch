@@ -14,6 +14,7 @@ const components = [
   "tags",
   "breadcrumb",
   "hero",
+  "cards",
 ].forEach((component) => {
   fetch(`/components/${component}.html`)
     .then((response) => response.text())
