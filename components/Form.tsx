@@ -19,6 +19,7 @@ export const Form = () => {
                 type="text"
                 placeholder="Text input"
                 value="bulma"
+                onChange={() => {}}
               />
               <span className="icon is-small is-left">
                 <i className="fa fa-user"></i>
@@ -37,6 +38,7 @@ export const Form = () => {
                 type="text"
                 placeholder="Email input"
                 value="hello@"
+                onChange={() => {}}
               />
               <span className="icon is-small is-left">
                 <i className="fa fa-envelope"></i>
@@ -175,6 +177,7 @@ export const Form = () => {
                     type="email"
                     placeholder="Email"
                     value="alex@smith.com"
+                    onChange={() => {}}
                   />
                   <span className="icon is-small is-left">
                     <i className="fa fa-envelope"></i>
@@ -326,7 +329,6 @@ export const Form = () => {
               </label>
             </div>
           </div>
-
           <div className="field">
             <div className="file is-info has-name">
               <label className="file-label">
@@ -343,7 +345,6 @@ export const Form = () => {
               </label>
             </div>
           </div>
-
           <div className="field">
             <div className="file is-warning is-boxed">
               <label className="file-label">
@@ -357,7 +358,6 @@ export const Form = () => {
               </label>
             </div>
           </div>
-
           <div className="field">
             <div className="file is-danger has-name is-boxed">
               <label className="file-label">
