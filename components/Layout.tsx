@@ -1,4 +1,5 @@
 import { Header } from "components/Header";
+import { Typography } from "components/Typography";
 import type { ReactNode } from "react";
 import { Theme } from "types";
 
@@ -33,6 +34,9 @@ export const Layout = ({ theme, children }: Props) => {
           </div>
         </section>
         {children}
+        <div className="container">
+          <Typography />
+        </div>
       </body>
     </html>
   );
