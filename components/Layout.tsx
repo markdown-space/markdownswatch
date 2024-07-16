@@ -1,4 +1,15 @@
+import { Box } from "components/Box";
+import { Breadcrumb } from "components/Breadcrumb";
+import { Buttons } from "components/Buttons";
+import { Content } from "components/Content";
+import { Delete } from "components/Delete";
+import { Form } from "components/Form";
 import { Header } from "components/Header";
+import { Icons } from "components/Icons";
+import { Notifications } from "components/Notifications";
+import { Progress } from "components/Progress";
+import { Table } from "components/Table";
+import { Tag } from "components/Tags";
 import { Typography } from "components/Typography";
 import type { ReactNode } from "react";
 import { Theme } from "types";
@@ -36,6 +47,17 @@ export const Layout = ({ theme, children }: Props) => {
         {children}
         <div className="container">
           <Typography />
+          <Box />
+          <Buttons />
+          <Content />
+          <Delete />
+          <Form />
+          <Icons />
+          <Notifications />
+          <Progress />
+          <Table />
+          <Tag />
+          <Breadcrumb />
         </div>
       </body>
     </html>
