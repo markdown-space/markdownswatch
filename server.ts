@@ -35,8 +35,6 @@ const server = serve({
 
     const theme = themes.find((theme) => theme.route === path);
 
-    console.log("THEME: ", theme);
-
     if (!theme) {
       return new Response("Theme not found", { status: 500 });
     }
