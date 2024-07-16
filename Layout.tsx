@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 export type Theme = {
   id: string;
   name: string;
+  description: string;
   cssFile: string;
   route: string;
 };
@@ -28,10 +29,17 @@ export const Layout = ({ theme, children }: Props) => {
       </head>
       <body>
         <Header />
-        <div className="container">
-          <h1 className="title">Current Theme: {theme.name}</h1>
-          {children}
-        </div>
+        <section>
+          <div className="hero is-primary">
+            <div className="hero-body">
+              <div className="container">
+                <h1 className="title">{theme.name}</h1>
+                <h2 className="subtitle">{theme.description}</h2>
+              </div>
+            </div>
+          </div>
+        </section>
+        {children}
       </body>
     </html>
   );
