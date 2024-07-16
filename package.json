@@ -8,7 +8,8 @@
     "start": "npm run build-bulma -- --watch",
     "watch-themes": "bun run ./scripts/watchThemes.ts",
     "run-server": "bun run ./scripts/runServer.ts",
-    "dev": "bun run watch-themes & bun run run-server"
+    "dev": "bun run watch-themes & bun run run-server",
+    "jsx": "bun --hot run server.ts"
   },
   "author": "",
   "license": "ISC",

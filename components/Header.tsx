@@ -1,4 +1,4 @@
-import { themes } from "server";
+import { themes } from "consts";
 
 export const Header = () => {
   return (

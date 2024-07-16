@@ -1,30 +1,8 @@
 import { serve } from "bun";
-import { Layout, Theme } from "Layout";
+import chalk from "chalk";
+import { ThemeLayout } from "components/ThemeLayout";
+import { themes } from "consts";
 import { renderToString } from "react-dom/server";
-
-export const themes: Theme[] = [
-  {
-    id: "bulma",
-    name: "Bulma",
-    description: "It's the default",
-    cssFile: "./css/bulma.css",
-    route: "/",
-  },
-  {
-    id: "cerulean",
-    name: "Cerulean",
-    description: "A calm blue sky",
-    cssFile: "./css/cerulean.css",
-    route: "/cerulean",
-  },
-  {
-    id: "Lux",
-    name: "Lux",
-    description: "A touch of class",
-    cssFile: "./css/lux.css",
-    route: "/lux",
-  },
-];
 
 const server = serve({
   port: 3000,
@@ -55,18 +33,15 @@ const server = serve({
       });
     }
 
-    const theme = themes.find((t) => t.route === path);
+    const theme = themes.find((theme) => theme.route === path);
 
     console.log("THEME: ", theme);
+
     if (!theme) {
       return new Response("Theme not found", { status: 500 });
     }
 
-    const content = renderToString(
-      <Layout theme={theme}>
-        <></>
-      </Layout>
-    );
+    const content = renderToString(ThemeLayout({ theme }));
 
     return new Response(content, {
       headers: { "Content-Type": "text/html" },
@@ -74,4 +49,4 @@ const server = serve({
   },
 });
 
-console.log(`Server running at http://localhost:${server.port}`);
+console.log(chalk.white(`Server running at http://localhost:${server.port}`));
