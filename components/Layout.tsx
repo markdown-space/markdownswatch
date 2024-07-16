@@ -1,13 +1,6 @@
-import { Header } from "Header";
+import { Header } from "components/Header";
 import type { ReactNode } from "react";
-
-export type Theme = {
-  id: string;
-  name: string;
-  description: string;
-  cssFile: string;
-  route: string;
-};
+import { Theme } from "types";
 
 type Props = {
   theme: Theme;
@@ -16,7 +9,7 @@ type Props = {
 
 export const Layout = ({ theme, children }: Props) => {
   return (
-    <html lang="en" data-theme="light">
+    <html lang="en" data-theme={theme.isDarkMode ? "dark: " : "light"}>
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
