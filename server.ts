@@ -8,13 +8,12 @@ const server = serve({
   port: 3000,
   async fetch(req) {
     const url = new URL(req.url);
+
     let path = url.pathname;
 
     if (path !== "/" && path.at(-1) === "/") {
       path = url.pathname.slice(0, -1);
     }
-
-    console.log("PATH: ", path);
 
     if (path.startsWith("/public/") || path === "/favicon.ico") {
       const filePath = `.${path}`; // Use the full path
