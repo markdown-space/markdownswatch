@@ -1,11 +1,17 @@
 import { Box } from "components/Box";
 import { Breadcrumb } from "components/Breadcrumb";
 import { Buttons } from "components/Buttons";
+import { Cards } from "components/Cards";
 import { Content } from "components/Content";
 import { Delete } from "components/Delete";
+import { Dropdown } from "components/Dropdown";
 import { Form } from "components/Form";
 import { Header } from "components/Header";
+import { Hero } from "components/Hero";
 import { Icons } from "components/Icons";
+import { Images } from "components/Images";
+import { Level } from "components/Level";
+import { Media } from "components/Media";
 import { Notifications } from "components/Notifications";
 import { Progress } from "components/Progress";
 import { Table } from "components/Table";
@@ -53,11 +59,17 @@ export const Layout = ({ theme, children }: Props) => {
           <Delete />
           <Form />
           <Icons />
+          <Images />
           <Notifications />
           <Progress />
           <Table />
           <Tag />
           <Breadcrumb />
+          <Hero />
+          <Cards />
+          <Dropdown />
+          <Level />
+          <Media />
         </div>
       </body>
     </html>
