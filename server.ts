@@ -1,6 +1,6 @@
 import { serve } from "bun";
 import chalk from "chalk";
-import { ThemeLayout } from "components/ThemeLayout";
+import { Layout } from "components/Layout";
 import { themes } from "consts";
 import { renderToString } from "react-dom/server";
 
@@ -38,7 +38,7 @@ const server = serve({
       return new Response("Theme not found", { status: 500 });
     }
 
-    const content = renderToString(ThemeLayout({ theme }));
+    const content = renderToString(Layout({ theme }));
 
     return new Response(content, {
       headers: { "Content-Type": "text/html" },

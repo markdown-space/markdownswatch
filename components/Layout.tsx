@@ -12,20 +12,25 @@ import { Icons } from "components/Icons";
 import { Images } from "components/Images";
 import { Level } from "components/Level";
 import { Media } from "components/Media";
+import { Menu } from "components/Menu";
+import { Message } from "components/Message";
+import { Modal } from "components/Modal";
+import { Navbar } from "components/Navbar";
 import { Notifications } from "components/Notifications";
+import { Pagination } from "components/Pagination";
+import { Panel } from "components/Panel";
 import { Progress } from "components/Progress";
 import { Table } from "components/Table";
+import { Tabs } from "components/Tabs";
 import { Tag } from "components/Tags";
 import { Typography } from "components/Typography";
-import type { ReactNode } from "react";
-import { Theme } from "types";
+import type { Theme } from "types";
 
 type Props = {
   theme: Theme;
-  children: ReactNode;
 };
 
-export const Layout = ({ theme, children }: Props) => {
+export const Layout = ({ theme }: Props) => {
   return (
     <html lang="en" data-theme={theme.isDarkMode ? "dark: " : "light"}>
       <head>
@@ -50,7 +55,6 @@ export const Layout = ({ theme, children }: Props) => {
             </div>
           </div>
         </section>
-        {children}
         <div className="container">
           <Typography />
           <Box />
@@ -70,6 +74,13 @@ export const Layout = ({ theme, children }: Props) => {
           <Dropdown />
           <Level />
           <Media />
+          <Menu />
+          <Message />
+          <Modal />
+          <Navbar />
+          <Pagination />
+          <Panel />
+          <Tabs />
         </div>
       </body>
     </html>
