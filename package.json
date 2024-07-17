@@ -4,12 +4,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build-bulma": "sass --load-path=node_modules my-bulma-project.scss my-bulma-project.css",
-    "start": "npm run build-bulma -- --watch",
     "watch-themes": "bun run ./scripts/watchThemes.ts",
-    "run-server": "bun run ./scripts/runServer.ts",
-    "dev": "bun run watch-themes & bun run run-server",
-    "jsx": "bun --hot run server.ts"
+    "watch-server": "bun --hot run server.ts",
+    "dev": "bun run watch-themes & bun run watch-server"
   },
   "author": "",
   "license": "ISC",
