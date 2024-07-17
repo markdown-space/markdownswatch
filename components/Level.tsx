@@ -84,7 +84,7 @@ export const Level = () => {
         <p className="level-item has-text-centered">
           {" "}
           <img
-            src="https://bulma.io/images/bulma-type.png"
+            src="https://pbs.twimg.com/profile_images/1635769642382766081/x3ROMh2r_400x400.jpg"
             alt=""
             style={{ height: "30px" }}
           />{" "}
