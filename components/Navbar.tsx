@@ -10,6 +10,10 @@ export const Navbar = () => {
     "success",
     "warning",
     "danger",
+    "white",
+    "black",
+    "light",
+    "dark",
   ];
 
   const toggleNavbar = () => setIsActive(!isActive);
@@ -22,6 +26,7 @@ export const Navbar = () => {
         <nav
           key={index}
           className={`navbar ${modifier ? `is-${modifier}` : ""}`}
+          style={{ marginBottom: "1rem" }}
         >
           <div className="navbar-brand">
             <a className="navbar-item" href="https://bulma.io">
