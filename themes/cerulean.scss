@@ -39,7 +39,7 @@ $text: transparent;
 $link: $blue;
 $border: #dbdbdb;
 
-// $family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 // Lists and maps
 $custom-colors: null !default;
@@ -105,7 +105,8 @@ $new-colors: fn.mergeColorMaps(
   $subtitle-weight: 300,
   $subtitle-strong-color: 500,
   $box-shadow: 0 0 0 1px $grey,
-  $control-height: 2.375em
+  $control-height: 2.375em,
+  $family-sans-serif: $family-sans-serif
 );
 
 // Import the Google Font

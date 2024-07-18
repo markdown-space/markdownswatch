@@ -53,7 +53,7 @@ export const Buttons = () => {
             <a className="button is-warning is-loading"> Loading </a>
             <a className="button is-danger is-loading"> Loading </a>
           </div>
-          <p className="field">
+          <p className="field buttons">
             <a className="button">
               <span className="icon is-small">
                 <i className="fa fa-bold"> </i>
