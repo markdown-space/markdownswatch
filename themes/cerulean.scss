@@ -182,7 +182,6 @@ $new-colors: fn.mergeColorMaps(
   @include btn-gradient($primary);
   .navbar-item,
   .navbar-link {
-    color: $white;
     &.has-dropdown:hover .navbar-link,
     &:hover {
       background-color: rgba(#000, 0.05);
