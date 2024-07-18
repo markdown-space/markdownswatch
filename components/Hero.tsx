@@ -21,7 +21,7 @@ export const Hero = () => {
           <section>
             <div>
               <nav className={`navbar ${m !== "" ? `is-${m}` : ""}`}>
-                <div className="container">
+                <div className="container" style={{ padding: "0 0.5rem" }}>
                   <div className="navbar-brand">
                     <a className="navbar-item">
                       <img src="/public/markdown-space-logo.svg" alt="Logo" />

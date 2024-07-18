@@ -34,11 +34,6 @@ export const Header = () => {
                     );
                   })}
                 </div>
-                <div className="column">
-                  <a className="navbar-item" href="/">
-                    Home
-                  </a>
-                </div>
               </div>
             </div>
           </div>
