@@ -4,13 +4,13 @@ export const Delete = () => {
       <h1 className="title">Delete</h1>
       <hr />
       <div className="block">
-        <span className="tag is-success">
+        <span className="tag is-success mr-1">
           Hello World
           <button className="delete is-small"></button>
         </span>
-        <a className="delete is-small"> </a>
-        <a className="delete"> </a>
-        <a className="delete is-medium"> </a>
+        <a className="delete is-small mr-1"> </a>
+        <a className="delete mr-1"> </a>
+        <a className="delete is-medium mr-1"> </a>
         <a className="delete is-large"> </a>
       </div>
       <div className="notification is-danger">
