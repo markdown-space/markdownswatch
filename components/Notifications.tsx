@@ -1,5 +1,6 @@
 export const Notifications = () => {
   const modifiers = [
+    "",
     "primary",
     "link",
     "info",
@@ -17,9 +18,10 @@ export const Notifications = () => {
         {modifiers.slice(0, 7).map((m, index) => (
           <div key={index} className="column is-half">
             <div className={`notification ${m !== "" ? `is-${m}` : ""}`}>
-              <button className="delete"></button>
-              Lorem ipsum dolor sit amet, <a href="#">consectetur</a> adipiscing
-              elit lorem ipsum dolor sit amet, consectetur adipiscing elit
+              <button className="delete"></button>I am enough of an artist to
+              draw freely upon my imagination. Imagination is more important
+              than knowledge. Knowledge is limited. Imagination encircles the
+              world.
             </div>
           </div>
         ))}
