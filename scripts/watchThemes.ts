@@ -1,8 +1,8 @@
-import { watch } from "fs/promises";
-import { compile } from "sass";
-import { join, basename, relative } from "path";
 import chalk from "chalk";
-import { mkdir, writeFile, readdir } from "fs/promises";
+import { themes } from "consts";
+import { mkdir, readdir, watch, writeFile } from "fs/promises";
+import { basename, join, relative } from "path";
+import { compile } from "sass";
 
 const cwd = process.cwd();
 
@@ -69,7 +69,11 @@ async function watchDirectory(): Promise<void> {
       if (isShuttingDown) break;
 
       if (event.filename && event.filename.endsWith(".scss")) {
-        const file = join(themesDir, event.filename);
+        const themeName = themes.find((theme) =>
+          event?.filename?.includes(theme.id)
+        )?.id;
+
+        const file = join(themesDir, themeName + ".scss");
 
         console.log(
           chalk.blue(`File /${relative(cwd, file)} has been changed`)
