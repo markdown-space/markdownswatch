@@ -96,17 +96,17 @@ $new-colors: fn.mergeColorMaps(
 
 // Path to Bulma's sass folder
 @use "bulma/sass" with (
-  $primary: $primary,
-  $danger: $red,
+  $box-shadow: 0 0 0 1px $grey,
   $button-weight: 400,
   $colors: $new-colors,
-  $title-color: $primary-dark,
-  $title-weight: 500,
-  $subtitle-weight: 300,
-  $subtitle-strong-color: 500,
-  $box-shadow: 0 0 0 1px $grey,
   $control-height: 2.375em,
-  $family-sans-serif: $family-sans-serif
+  $danger: $red,
+  $family-sans-serif: $family-sans-serif,
+  $primary: $primary,
+  $subtitle-strong-color: 500,
+  $subtitle-weight: 300,
+  $title-color: $primary-dark,
+  $title-weight: 500
 );
 
 // Import the Google Font

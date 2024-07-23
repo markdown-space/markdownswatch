@@ -19,7 +19,7 @@ $purple: #aa40ff;
 $red: #ff2e12;
 $grey: #dbdbdb;
 
-$primary: #2780e3 !default;
+$primary: #2780e3;
 $primary-dark: darken(#2780e3, 20);
 $warning: $orange;
 $info: $purple;
@@ -34,6 +34,7 @@ $body-size: 15px;
 
 $radius: 0;
 $radius-small: 0;
+$radius-medium: 0;
 $radius-large: 0;
 
 $link-hover: $primary-dark;
@@ -50,7 +51,7 @@ $box-shadow: 0 0 0 1px $grey;
 $card-shadow: 0 0 0 1px $grey;
 
 $control-height: 2.6667em;
-$colors: mergeColorMaps(
+$new-colors: mergeColorMaps(
   (
     "white": (
       $white,
@@ -77,15 +78,15 @@ $colors: mergeColorMaps(
       $light,
     ),
     "link": (
-      $link,
+      $blue,
       $light,
     ),
     "info": (
       $info,
-      $dark,
+      $light,
     ),
     "success": (
-      $success,
+      $green,
       $light,
     ),
     "warning": (
@@ -93,7 +94,11 @@ $colors: mergeColorMaps(
       $light,
     ),
     "danger": (
-      $danger,
+      $red,
+      $light,
+    ),
+    "delete": (
+      $red,
       $light,
     ),
   ),

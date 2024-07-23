@@ -7,16 +7,23 @@
 @use "./cosmo/fonts.scss" as f;
 
 @use "bulma/sass" with (
+  $body-size: v.$body-size,
+  // $box-shadow: 0 0 0 1px $grey, //
+  $button-weight: 400,
+  $colors: v.$new-colors,
+  // $control-height: 2.375em, //
+  $danger: v.$red,
   $family-primary: f.$family-serif,
   $family-sans-serif: f.$family-serif,
   $primary: v.$primary,
-  $danger: v.$red,
-  $button-weight: 400,
-  $colors: v.$colors,
-  $title-weight: 500,
-  $radius: v.$radius,
+  $radius-large: v.$radius-large,
+  $radius-medium: v.$radius-medium,
   $radius-small: v.$radius-small,
-  $body-size: v.$body-size
+  $radius: v.$radius,
+  // $subtitle-strong-color: 500, //
+  // $subtitle-weight: 300, //
+  // $title-color: $primary-dark, //
+  // $title-weight: 500
 );
 
 @import "./cosmo/overrides.scss";
