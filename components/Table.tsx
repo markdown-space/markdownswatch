@@ -75,6 +75,7 @@ export const Table = () => {
             <th>1</th>
             <td>
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/Leicester_City_F.C."
                 title="Leicester City F.C."
               >
@@ -93,6 +94,7 @@ export const Table = () => {
             <td>
               Qualification for the
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Champions_League#Group_stage"
                 title="2016–17 UEFA Champions League"
               >
@@ -104,6 +106,7 @@ export const Table = () => {
             <th>2</th>
             <td>
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/Arsenal_F.C."
                 title="Arsenal F.C."
               >
@@ -121,6 +124,7 @@ export const Table = () => {
             <td>
               Qualification for the
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Champions_League#Group_stage"
                 title="2016–17 UEFA Champions League"
               >
@@ -132,6 +136,7 @@ export const Table = () => {
             <th>3</th>
             <td>
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/Tottenham_Hotspur_F.C."
                 title="Tottenham Hotspur F.C."
               >
@@ -149,6 +154,7 @@ export const Table = () => {
             <td>
               Qualification for the
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Champions_League#Group_stage"
                 title="2016–17 UEFA Champions League"
               >
@@ -160,6 +166,7 @@ export const Table = () => {
             <th>4</th>
             <td>
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/Manchester_City_F.C."
                 title="Manchester City F.C."
               >
@@ -177,6 +184,7 @@ export const Table = () => {
             <td>
               Qualification for the
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Champions_League#Play-off_round"
                 title="2016–17 UEFA Champions League"
               >
@@ -188,6 +196,7 @@ export const Table = () => {
             <th>5</th>
             <td>
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/Manchester_United_F.C."
                 title="Manchester United F.C."
               >
@@ -205,6 +214,7 @@ export const Table = () => {
             <td>
               Qualification for the
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Europa_League#Group_stage"
                 title="2016–17 UEFA Europa League"
               >
@@ -216,6 +226,7 @@ export const Table = () => {
             <th>6</th>
             <td>
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/Southampton_F.C."
                 title="Southampton F.C."
               >
@@ -233,6 +244,7 @@ export const Table = () => {
             <td>
               Qualification for the
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Europa_League#Group_stage"
                 title="2016–17 UEFA Europa League"
               >
@@ -244,6 +256,7 @@ export const Table = () => {
             <th>7</th>
             <td>
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/West_Ham_United_F.C."
                 title="West Ham United F.C."
               >
@@ -261,6 +274,7 @@ export const Table = () => {
             <td>
               Qualification for the
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Europa_League#Third_qualifying_round"
                 title="2016–17 UEFA Europa League"
               >
@@ -272,6 +286,7 @@ export const Table = () => {
             <th>8</th>
             <td>
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/Liverpool_F.C."
                 title="Liverpool F.C."
               >
@@ -292,6 +307,7 @@ export const Table = () => {
             <th>9</th>
             <td>
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/Stoke_City_F.C."
                 title="Stoke City F.C."
               >
@@ -312,6 +328,7 @@ export const Table = () => {
             <th>10</th>
             <td>
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/Chelsea_F.C."
                 title="Chelsea F.C."
               >
@@ -332,6 +349,7 @@ export const Table = () => {
             <th>11</th>
             <td>
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/Everton_F.C."
                 title="Everton F.C."
               >
@@ -352,6 +370,7 @@ export const Table = () => {
             <th>12</th>
             <td>
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/Swansea_City_A.F.C."
                 title="Swansea City A.F.C."
               >
@@ -372,6 +391,7 @@ export const Table = () => {
             <th>13</th>
             <td>
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/Watford_F.C."
                 title="Watford F.C."
               >
@@ -392,6 +412,7 @@ export const Table = () => {
             <th>14</th>
             <td>
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/West_Bromwich_Albion_F.C."
                 title="West Bromwich Albion F.C."
               >
@@ -412,6 +433,7 @@ export const Table = () => {
             <th>15</th>
             <td>
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/Crystal_Palace_F.C."
                 title="Crystal Palace F.C."
               >
@@ -432,6 +454,7 @@ export const Table = () => {
             <th>16</th>
             <td>
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/A.F.C._Bournemouth"
                 title="A.F.C. Bournemouth"
               >
@@ -452,6 +475,7 @@ export const Table = () => {
             <th>17</th>
             <td>
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/Sunderland_A.F.C."
                 title="Sunderland A.F.C."
               >
@@ -472,6 +496,7 @@ export const Table = () => {
             <th>18</th>
             <td>
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/Newcastle_United_F.C."
                 title="Newcastle United F.C."
               >
@@ -490,6 +515,7 @@ export const Table = () => {
             <td>
               Relegation to the
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/2016%E2%80%9317_Football_League_Championship"
                 title="2016–17 Football League Championship"
               >
@@ -501,6 +527,7 @@ export const Table = () => {
             <th>19</th>
             <td>
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/Norwich_City_F.C."
                 title="Norwich City F.C."
               >
@@ -519,6 +546,7 @@ export const Table = () => {
             <td>
               Relegation to the
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/2016%E2%80%9317_Football_League_Championship"
                 title="2016–17 Football League Championship"
               >
@@ -530,6 +558,7 @@ export const Table = () => {
             <th>20</th>
             <td>
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/Aston_Villa_F.C."
                 title="Aston Villa F.C."
               >
@@ -548,6 +577,7 @@ export const Table = () => {
             <td>
               Relegation to the
               <a
+                className="pl-1"
                 href="https://en.wikipedia.org/wiki/2016%E2%80%9317_Football_League_Championship"
                 title="2016–17 Football League Championship"
               >
