@@ -35,6 +35,7 @@ export const themes: Theme[] = [
     description: "Jet black and electric blue",
     cssFile: "./css/cyborg.css",
     route: "/cyborg",
+    isDarkMode: true,
   },
   {
     id: "darkly",

@@ -1,11 +1,4 @@
-// Overrides
-@import './variables';
-@import '../utilities/initial-variables.scss';
-@import '../utilities/derived-variables.scss';
-@import '../utilities/mixins.scss';
-@import '../utilities/functions.scss';
-@import '../utilities/css-variables.scss';
-  // Overrides
+@import "./variables";
 
 .hero {
   background-color: $black-ter;
@@ -96,13 +89,4 @@
       border: none;
     }
   }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 700;
 }

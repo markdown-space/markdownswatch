@@ -1,41 +1,18 @@
 @use "baseStyles.scss";
-
-@use "./utilities/functions.scss" as fn;
-@use "./utilities/initial-variables.scss" as iv;
-@use "./utilities/derived-variables.scss" as dv;
-@use "./utilities/mixins.scss" as mx;
 @use "./cyborg/variables.scss" as v;
-@use "./cyborg/fonts.scss" as f;
 
 @use "bulma/sass" with (
+  $body-background-color: v.$body-background-color,
+  $box-shadow: 0 0 0 1px v.$grey,
   $button-weight: 400,
   $colors: v.$colors,
-  $title-weight: 700,
-  $radius: v.$radius,
-  $radius-small: v.$radius-small,
-  $body-size: v.$body-size,
-
-  $family-primary: f.$family-primary,
-  $family-sans-serif: f.$family-sans-serif,
-  $family-code: f.$family-code,
-
   $primary: v.$primary,
-  $link: v.$link,
-  $info: dv.$info,
-
-  $success: dv.$success,
-  $warning: dv.$warning,
-  $danger: dv.$danger,
-
-  $black: v.$black,
-  $grey-darker: v.$grey-darker,
-  $grey-dark: v.$grey-dark,
-  $grey: v.$grey,
-  $grey-light: v.$grey-light,
-  $grey-lighter: v.$grey-lighter,
-  $white: v.$white
+  $title-color: v.$title-color,
+  $subtitle-color: v.$subtitle-color,
+  $subtitle-strong-color: v.$subtitle-strong-color,
+  $dark: v.$grey-darker,
+  $box-background-color: v.$box-background-color,
+  $grey-darker: v.$grey-darker
 );
 
 @import "./cyborg/overrides.scss";
-
-@import "./utilities/dark-mode.scss";
