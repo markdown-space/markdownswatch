@@ -1,13 +1,6 @@
-// Overrides
-@import './variables';
-@import '../utilities/initial-variables.scss';
-@import '../utilities/derived-variables.scss';
-@import '../utilities/mixins.scss';
-@import '../utilities/functions.scss';
-@import '../utilities/css-variables.scss';
-  // Overrides
-// Overrides
-
+@import "./variables";
+@import "../utilities/functions.scss";
+@import "../utilities/css-variables.scss";
 
 hr {
   height: $border-width;
@@ -29,7 +22,6 @@ a {
 .button {
   transition: all 200ms ease;
   border-width: $border-width;
-  color: $white;
 
   &.is-active,
   &.is-focused,
@@ -86,10 +78,6 @@ a {
       margin-right: -$border-width;
     }
   }
-}
-
-.notification {
-  background-color: $grey-dark;
 }
 
 .card {

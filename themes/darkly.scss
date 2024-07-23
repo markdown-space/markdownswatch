@@ -1,43 +1,42 @@
 @use "baseStyles.scss";
-
-@use "./utilities/functions.scss" as fn;
-@use "./utilities/initial-variables.scss" as iv;
-@use "./utilities/mixins.scss" as mx;
 @use "./darkly/variables.scss" as v;
 @use "./darkly/fonts.scss" as f;
 
 @use "bulma/sass" with (
+  $background: v.$background,
+  $black: v.$black,
+  $body-background-color: v.$body-background-color,
+  $border: v.$border,
+  $box-background-color: v.$box-background-color,
+  $box-color: v.$box-color,
+  $box-shadow: v.$box-shadow,
+  $button-border-color: v.$button-border-color,
+  $button-weight: 400,
+  $code-background: v.$code-background,
+  $colors: v.$colors,
+  $control-radius: v.$control-radius,
+  $danger: v.$danger,
+  $dark: v.$grey-darker,
+  $family-code: v.$family-code,
   $family-primary: v.$family-primary,
   $family-sans-serif: v.$family-sans-serif,
-  $family-code: v.$family-code,
-
-  $primary: v.$primary,
-  $link: v.$link,
-  $info: v.$info,
-  $success: v.$success,
-  $warning: v.$warning,
-  $danger: v.$danger,
-
-  $black: v.$black,
-  $grey-darker: v.$grey-darker,
   $grey-dark: v.$grey-dark,
-  $grey: v.$grey,
+  $grey-darker: v.$grey-darker,
   $grey-light: v.$grey-light,
   $grey-lighter: v.$grey-lighter,
-  $white: v.$white,
-
-  $box-color: v.$box-color,
-  $border: v.$border,
-
-  $background: v.$background,
-  $code-background: v.$code-background,
-
+  $grey: v.$grey,
+  $info: v.$info,
+  $link: v.$link,
+  $primary: v.$primary,
+  $subtitle-color: v.$subtitle-color,
+  $subtitle-strong-color: v.$subtitle-strong-color,
+  $subtitle-weight: v.$subtitle-weight,
+  $success: v.$success,
   $table-color: v.$table-color,
-
-  $control-radius: v.$control-radius,
-  $button-border-color: v.$button-border-color
+  $title-color: v.$title-color,
+  $title-weight: v.$title-weight,
+  $warning: v.$warning,
+  $white: v.$white
 );
 
 @import "./darkly/overrides.scss";
-
-@import "./utilities/dark-mode.scss";

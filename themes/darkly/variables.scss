@@ -132,8 +132,8 @@ $colors: mergeColorMaps(
       $white,
     ),
     "light": (
-      $light,
-      $dark,
+      $white,
+      $black,
     ),
     "dark": (
       $dark,
@@ -149,22 +149,22 @@ $colors: mergeColorMaps(
     ),
     "link": (
       $link,
-      $light,
+      $white,
     ),
     "info": (
-      $info,
-      $dark,
+      $blue,
+      $white,
     ),
     "success": (
-      $success,
+      $green,
       $light,
     ),
     "warning": (
-      $warning,
-      $light,
+      $yellow,
+      $dark,
     ),
     "danger": (
-      $danger,
+      $red,
       $light,
     ),
   ),

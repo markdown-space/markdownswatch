@@ -43,6 +43,7 @@ export const themes: Theme[] = [
     description: "Flatly in night-mode",
     cssFile: "./css/darkly.css",
     route: "/darkly",
+    isDarkMode: true,
   },
   {
     id: "journal",
