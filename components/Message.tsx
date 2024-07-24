@@ -22,12 +22,13 @@ export const Message = () => {
                 <button className="delete"></button>
               </div>
               <div className="message-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
-                <strong>Pellentesque risus mi</strong>, tempus quis placerat ut,
-                porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla.
-                Nullam gravida purus diam, et dictum
-                <a>felis venenatis</a> efficitur. Aenean ac{" "}
-                <em>eleifend lacus</em>.
+                In the tapestry of life, each thread weaves a unique story.{" "}
+                <strong>Our choices, big and small</strong>, color the fabric of
+                our journey. With every step, we paint our path forward, leaving
+                behind a trail of memories. It's in the quiet moments that we
+                find
+                <a>our true selves</a>, reflecting on the past and dreaming of{" "}
+                <em>future adventures</em>.
               </div>
             </article>
           </div>

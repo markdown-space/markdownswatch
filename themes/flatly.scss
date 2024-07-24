@@ -136,14 +136,16 @@ $new-colors: fn.mergeColorMaps(
   $colors: $new-colors,
   $primary: $primary,
   $title-weight: $title-weight,
+  $family-sans-serif: $family-sans-serif,
   $subtitle-weight: $subtitle-weight,
-  $box-background-color: $box-background-color
+  $box-background-color: $box-background-color,
+  $link: $link,
+  $text: $text,
+  $turquoise: $turquoise
 );
 
 // Overrides
-@if $bulmaswatch-import-font {
-  @import url("https://fonts.googleapis.com/css?family=Lato:400,700,400italic&display=swap");
-}
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700,400italic&display=swap");
 
 hr {
   height: $border-width;
@@ -155,6 +157,7 @@ h6 {
 }
 
 a {
+  color: $link;
   transition: all 200ms ease;
 }
 
@@ -347,6 +350,7 @@ body > .navbar {
 
 .panel-heading {
   font-weight: iv.$weight-bold;
+  background-color: #ededed;
 }
 
 .panel-tabs {
