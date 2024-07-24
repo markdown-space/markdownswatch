@@ -1,8 +1,6 @@
-@import '../utilities/initial-variables.scss';
-@import '../utilities/derived-variables.scss';
-@import '../utilities/mixins.scss';
-@import '../utilities/functions.scss';
-@import '../utilities/css-variables.scss';
+@import "../utilities/initial-variables.scss";
+@import "../utilities/derived-variables.scss";
+@import "../utilities/functions.scss";
 
 ////////////////////////////////////////////////
 // JOURNAL
@@ -67,12 +65,12 @@ $colors: mergeColorMaps(
       $light,
     ),
     "link": (
-      $link,
+      $blue,
       $light,
     ),
     "info": (
-      $info,
-      $dark,
+      #3298dc,
+      $light,
     ),
     "success": (
       $success,
