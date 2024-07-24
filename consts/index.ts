@@ -67,6 +67,13 @@ export const themes: Theme[] = [
     route: "/litera",
   },
   {
+    id: "lumen",
+    name: "Lumen",
+    description: "Light and shadow",
+    cssFile: "./css/lumen.css",
+    route: "/lumen",
+  },
+  {
     id: "unicorn",
     name: "Unicorn",
     description: "Whimsy that makes you barf",
