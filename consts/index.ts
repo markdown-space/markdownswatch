@@ -46,6 +46,13 @@ export const themes: Theme[] = [
     isDarkMode: true,
   },
   {
+    id: "flatly",
+    name: "Flatly",
+    description: "Flat and thick",
+    cssFile: "./css/flatly.css",
+    route: "/flatly",
+  },
+  {
     id: "journal",
     name: "Journal",
     description: "Crisp like a new sheet of paper",

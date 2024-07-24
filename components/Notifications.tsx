@@ -20,8 +20,7 @@ export const Notifications = () => {
             <div className={`notification ${m !== "" ? `is-${m}` : ""}`}>
               <button className="delete"></button>I am enough of an artist to
               draw freely upon my imagination. Imagination is more important
-              than knowledge. Knowledge is limited. Imagination encircles the
-              world.
+              than knowledge. Knowledge is limited.
             </div>
           </div>
         ))}
