@@ -1,8 +1,10 @@
 @use "./utilities/functions.scss" as fn;
 @use "./litera/variables.scss" as v;
-@use "./litera/derived.scss" as dv;
+@use "./utilities/derived-variables.scss" as dv;
 
 @use "bulma/sass" with (
+  $subtitle-color: v.$subtitle-color,
+  $body-size: v.$body-size,
   //initial variables
   $black: v.$black,
   $black-bis: v.$black-bis,

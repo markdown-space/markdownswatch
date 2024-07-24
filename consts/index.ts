@@ -61,7 +61,7 @@ export const themes: Theme[] = [
   },
   {
     id: "litera",
-    name: "litera",
+    name: "Litera",
     description: "The medium is the message",
     cssFile: "./css/litera.css",
     route: "/litera",
