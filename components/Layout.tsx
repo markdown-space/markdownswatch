@@ -49,7 +49,7 @@ export const Layout = ({ theme, currentRoute }: Props) => {
         <section>
           <div className="hero is-primary">
             <div className="hero-body">
-              <div className="container">
+              <div className="container" style={{ padding: "0 0.75rem" }}>
                 <h1 className="title">{theme.name}</h1>
                 <h2 className="subtitle">{theme.description}</h2>
               </div>
