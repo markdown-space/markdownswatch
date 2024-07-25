@@ -81,6 +81,13 @@ export const themes: Theme[] = [
     route: "/materia",
   },
   {
+    id: "minty",
+    name: "Minty",
+    description: "A fresh feel",
+    cssFile: "./css/minty.css",
+    route: "/minty",
+  },
+  {
     id: "unicorn",
     name: "Unicorn",
     description: "Whimsy that makes you barf",
