@@ -5,7 +5,17 @@ type Props = {
 };
 
 export const Header = ({ currentRoute }: Props) => {
-  console.log("currentRoute", currentRoute);
+  const chunkArray = (array: typeof themes, size: number) => {
+    const result = [];
+
+    for (let i = 0; i < array.length; i += size) {
+      result.push(array.slice(i, i + size));
+    }
+
+    return result;
+  };
+
+  const themeColumns = chunkArray(themes, 11);
 
   return (
     <nav className="main-nav navbar is-primary">
@@ -27,22 +37,23 @@ export const Header = ({ currentRoute }: Props) => {
             <a className="navbar-link"> Themes </a>
             <div className="navbar-dropdown is-boxed">
               <div className="columns">
-                <div className="column">
-                  {themes.map((theme) => {
-                    const isActive =
-                      currentRoute === theme.route ? " is-active" : "";
-
-                    return (
-                      <a
-                        key={theme.id}
-                        href={theme.route}
-                        className={`navbar-item${isActive}`}
-                      >
-                        {theme.name}
-                      </a>
-                    );
-                  })}
-                </div>
+                {themeColumns.map((column, columnIndex) => (
+                  <div key={columnIndex} className="column">
+                    {column.map((theme) => {
+                      const isActive =
+                        currentRoute === theme.route ? " is-active" : "";
+                      return (
+                        <a
+                          key={theme.id}
+                          href={theme.route}
+                          className={`navbar-item${isActive}`}
+                        >
+                          {theme.name}
+                        </a>
+                      );
+                    })}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
