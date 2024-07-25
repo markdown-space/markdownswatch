@@ -74,6 +74,13 @@ export const themes: Theme[] = [
     route: "/lux",
   },
   {
+    id: "materia",
+    name: "Materia",
+    description: "Material is the metaphor",
+    cssFile: "./css/materia.css",
+    route: "/materia",
+  },
+  {
     id: "unicorn",
     name: "Unicorn",
     description: "Whimsy that makes you barf",
