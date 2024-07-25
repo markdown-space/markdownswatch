@@ -28,9 +28,10 @@ import type { Theme } from "types";
 
 type Props = {
   theme: Theme;
+  currentRoute: string;
 };
 
-export const Layout = ({ theme }: Props) => {
+export const Layout = ({ theme, currentRoute }: Props) => {
   return (
     <html lang="en" data-theme={theme.isDarkMode ? "dark: " : "light"}>
       <head>
@@ -44,7 +45,7 @@ export const Layout = ({ theme }: Props) => {
         <link rel="stylesheet" href={`/css/${theme.cssFile}`} />
       </head>
       <body>
-        <Header />
+        <Header currentRoute={currentRoute} />
         <section>
           <div className="hero is-primary">
             <div className="hero-body">

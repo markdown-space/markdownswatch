@@ -1,6 +1,12 @@
 import { themes } from "consts";
 
-export const Header = () => {
+type Props = {
+  currentRoute: string;
+};
+
+export const Header = ({ currentRoute }: Props) => {
+  console.log("currentRoute", currentRoute);
+
   return (
     <nav className="main-nav navbar is-primary">
       <div className="container">
@@ -23,11 +29,14 @@ export const Header = () => {
               <div className="columns">
                 <div className="column">
                   {themes.map((theme) => {
+                    const isActive =
+                      currentRoute === theme.route ? " is-active" : "";
+
                     return (
                       <a
                         key={theme.id}
                         href={theme.route}
-                        className="navbar-item"
+                        className={`navbar-item${isActive}`}
                       >
                         {theme.name}
                       </a>

@@ -38,7 +38,7 @@ const server = serve({
       return new Response("Theme not found", { status: 500 });
     }
 
-    const content = renderToString(Layout({ theme }));
+    const content = renderToString(Layout({ theme, currentRoute: path }));
 
     return new Response(content, {
       headers: { "Content-Type": "text/html" },
