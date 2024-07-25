@@ -37,7 +37,7 @@ export const Layout = ({ theme, currentRoute }: Props) => {
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>{theme.name}</title>
+        <title>{`${theme.name} | Markdownswatch`}</title>
         <link
           href="https://unpkg.com/@fortawesome/fontawesome-free@5.13.0/css/all.css"
           rel="stylesheet"

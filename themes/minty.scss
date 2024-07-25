@@ -238,7 +238,7 @@ h6 {
       color: rgba($text, 0.75);
 
       &.is-active {
-        color: $text;
+        color: iv.$white;
       }
 
       &:after {
