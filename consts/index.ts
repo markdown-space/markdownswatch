@@ -3,7 +3,7 @@ import { Theme } from "types";
 export const themes: Theme[] = [
   {
     id: "bulma",
-    name: "Bulma",
+    name: "Default",
     description: "It's the default",
     cssFile: "./css/bulma.css",
     route: "/",
@@ -14,13 +14,6 @@ export const themes: Theme[] = [
     description: "A calm blue sky",
     cssFile: "./css/cerulean.css",
     route: "/cerulean",
-  },
-  {
-    id: "lux",
-    name: "Lux",
-    description: "A touch of class",
-    cssFile: "./css/lux.css",
-    route: "/lux",
   },
   {
     id: "cosmo",
@@ -72,6 +65,13 @@ export const themes: Theme[] = [
     description: "Light and shadow",
     cssFile: "./css/lumen.css",
     route: "/lumen",
+  },
+  {
+    id: "lux",
+    name: "Lux",
+    description: "A touch of class",
+    cssFile: "./css/lux.css",
+    route: "/lux",
   },
   {
     id: "unicorn",
