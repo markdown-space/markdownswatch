@@ -259,3 +259,18 @@
 
   @return if($minus, -$result, $result);
 }
+
+@function inv($color) {
+  @if type-of($color) == color {
+    $inverted: complement($color);
+    $lightness: lightness($inverted);
+
+    @if $lightness > 50% {
+      @return darken($inverted, 5%);
+    } @else {
+      @return lighten($inverted, 5%);
+    }
+  } @else {
+    @return $color; // Return the original value if it's not a color
+  }
+}

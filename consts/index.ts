@@ -88,6 +88,14 @@ export const themes: Theme[] = [
     route: "/minty",
   },
   {
+    id: "nuclear",
+    name: "Nuclear",
+    description: "A dark theme with irradiated highlights",
+    cssFile: "./css/nuclear.css",
+    route: "/nuclear",
+    isDarkMode: true,
+  },
+  {
     id: "unicorn",
     name: "Unicorn",
     description: "Whimsy that makes you barf",
