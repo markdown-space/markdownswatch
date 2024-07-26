@@ -96,7 +96,7 @@ $colors: fn.mergeColorMaps(
     ),
     "success": (
       $green,
-      iv.$white,
+      iv.$black,
     ),
     "warning": (
       $orange,
@@ -116,22 +116,12 @@ $colors: fn.mergeColorMaps(
   $primary: $primary,
   $family-sans-serif: $font-heading,
   $text: $text,
-  $turquoise: $turquoise,
   $border: $border,
   $body-background-color: $body-background-color
 );
 
 // Overrides
 @import url("https://fonts.googleapis.com/css?family=Varela+Round&display=swap");
-
-.hero {
-  .hero-body {
-    .title,
-    .subtitle {
-      color: $text;
-    }
-  }
-}
 
 .card-header {
   border-bottom: solid 1px $primary;
