@@ -1,0 +1,206 @@
+@use "baseStyles.scss";
+@use "./utilities/functions.scss" as fn;
+@use "./utilities/initial-variables.scss" as iv;
+@use "./utilities/derived-variables.scss" as dv;
+@use "./utilities/mixins.scss" as mx;
+
+////////////////////////////////////////////////
+// SANDSTONE
+////////////////////////////////////////////////
+$grey-darker: #2a2a26;
+$grey-dark: #3e3f3a;
+$grey: #8e8c84;
+$grey-light: #c9c8b8;
+$grey-lighter: #e6e1d7;
+$text: iv.$black;
+$white-ter: #f8f5f0;
+
+$orange: #f47c3c;
+$green: #93c54b;
+$blue: #29abe0;
+$red: #d9534f;
+
+$primary: #325d88 !default;
+$warning: $orange;
+$warning-invert: #fff;
+
+$family-sans-serif: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$body-size: 14px;
+
+$link: #8e8c84;
+
+$pagination-background-color: $grey-lighter;
+
+$navbar-background-color: $grey-dark;
+$navbar-item-color: $grey-light;
+$navbar-item-hover-color: $white-ter;
+$navbar-item-active-color: $white-ter;
+$navbar-item-hover-background-color: $grey-darker;
+$navbar-dropdown-arrow: $navbar-item-color;
+
+$bulmaswatch-import-font: true !default;
+
+$card-shadow: 0 2px 3px rgba($grey-dark, 0.1), 0 0 0 1px rgba($grey-dark, 0.1);
+
+$control-height: 2.572em;
+
+// Lists and maps
+$custom-colors: null !default;
+$custom-shades: null !default;
+$colors: fn.mergeColorMaps(
+  (
+    "white": (
+      iv.$white,
+      iv.$black,
+    ),
+    "black": (
+      iv.$black,
+      iv.$white,
+    ),
+    "light": (
+      $white-ter,
+      iv.$black,
+    ),
+    "dark": (
+      iv.$grey-dark,
+      iv.$white,
+    ),
+    "text": (
+      iv.$black,
+      iv.$white,
+    ),
+    "primary": (
+      $primary,
+      iv.$white,
+    ),
+    "link": (
+      iv.$grey,
+      iv.$white,
+    ),
+    "info": (
+      $blue,
+      iv.$white,
+    ),
+    "success": (
+      $green,
+      iv.$white,
+    ),
+    "warning": (
+      $orange,
+      iv.$white,
+    ),
+    "danger": (
+      $red,
+      iv.$white,
+    ),
+  ),
+  $custom-colors
+);
+
+@use "bulma/sass" with (
+  $button-weight: 400,
+  $colors: $colors,
+  $primary: $primary,
+  $family-sans-serif: $family-sans-serif,
+  $link: $link,
+  $body-size: $body-size
+);
+
+// Overrides
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap");
+
+.button {
+  text-transform: uppercase;
+}
+
+.notification {
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &.is-#{$name} {
+      a:not(.button) {
+        color: $color-invert;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.navbar {
+  .navbar-item,
+  .navbar-link {
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    &.is-active {
+      background-color: darken($grey-dark, 5);
+
+      @include mx.until(iv.$navbar-breakpoint) {
+        background-color: rgba($grey-dark, 0.25);
+      }
+    }
+  }
+
+  @include mx.from(iv.$navbar-breakpoint) {
+    .navbar-dropdown .navbar-item {
+      color: $text;
+    }
+  }
+
+  @include mx.until(iv.$navbar-breakpoint) {
+    .navbar-menu {
+      background-color: inherit;
+    }
+  }
+
+  &:not([class*="is-"]) .navbar-burger span {
+    background-color: $white-ter;
+  }
+
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &.is-#{$name} {
+      @include mx.until(iv.$navbar-breakpoint) {
+        .navbar-item,
+        .navbar-link {
+          color: rgba($color-invert, 0.7);
+          &.is-active {
+            color: $color-invert;
+          }
+        }
+      }
+    }
+  }
+
+  &.is-transparent {
+    background-color: transparent;
+  }
+}
+
+.hero {
+  // Colors
+  .navbar {
+    background-color: $grey-dark;
+  }
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &.is-#{$name} {
+      .navbar {
+        background: none;
+      }
+    }
+  }
+}
+
+.pagination-link,
+.pagination-next,
+.pagination-previous {
+  color: $primary;
+  background-color: $pagination-background-color;
+}

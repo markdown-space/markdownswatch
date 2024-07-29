@@ -103,6 +103,13 @@ export const themes: Theme[] = [
     route: "/pulse",
   },
   {
+    id: "sandstone",
+    name: "Sandstone",
+    description: "A touch of warmth",
+    cssFile: "./css/sandstone.css",
+    route: "/sandstone",
+  },
+  {
     id: "unicorn",
     name: "Unicorn",
     description: "Whimsy that makes you barf",
