@@ -18,7 +18,7 @@ $text: iv.$black;
 
 $primary: $purple !default;
 $warning: $orange;
-
+$white-ter: #f5f5f5;
 $orange-invert: #fff;
 $warning-invert: $orange-invert;
 
@@ -78,7 +78,7 @@ $colors: fn.mergeColorMaps(
       iv.$white,
     ),
     "light": (
-      iv.$grey-lighter,
+      $white-ter,
       iv.$black,
     ),
     "dark": (
