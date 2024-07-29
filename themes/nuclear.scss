@@ -63,32 +63,32 @@ $custom-shades: null !default;
 $colors: fn.mergeColorMaps(
   (
     "white": (
-      iv.$white,
       iv.$black,
+      iv.$white,
     ),
     "black": (
       iv.$white,
       iv.$black,
     ),
     "light": (
-      iv.$white,
       iv.$black,
+      iv.$white,
     ),
     "dark": (
       iv.$grey-dark,
       iv.$white,
     ),
     "text": (
-      $text,
       iv.$black,
+      iv.$white,
     ),
     "primary": (
       $primary,
       iv.$black,
     ),
     "link": (
-      $blue,
-      iv.$white,
+      $turquoise,
+      iv.$black,
     ),
     "info": (
       $blue,
@@ -190,6 +190,7 @@ th {
     $transition: box-shadow 0.1s linear;
 
     &.is-#{$name} {
+      color: $color-invert;
       &:not(.is-outlined) {
         border-width: 0;
       }
@@ -222,6 +223,10 @@ th {
           0 1px 15px 0 rgba(0, 0, 0, 0.9) inset;
       }
     }
+
+    // &.is-outlined {
+    //   color: red;
+    // }
   }
 }
 
