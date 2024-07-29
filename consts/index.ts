@@ -96,6 +96,13 @@ export const themes: Theme[] = [
     isDarkMode: true,
   },
   {
+    id: "pulse",
+    name: "Pulse",
+    description: "A trace of purple",
+    cssFile: "./css/pulse.css",
+    route: "/pulse",
+  },
+  {
     id: "unicorn",
     name: "Unicorn",
     description: "Whimsy that makes you barf",
