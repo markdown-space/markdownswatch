@@ -12,7 +12,7 @@ $grey-dark: #3e3f3a;
 $grey: #8e8c84;
 $grey-light: #c9c8b8;
 $grey-lighter: #e6e1d7;
-$text: iv.$black;
+$text: iv.$white;
 $white-ter: #f8f5f0;
 
 $orange: #f47c3c;
@@ -146,6 +146,12 @@ $colors: fn.mergeColorMaps(
   @include mx.from(iv.$navbar-breakpoint) {
     .navbar-dropdown .navbar-item {
       color: $text;
+      &.is-active {
+        @include mx.from(iv.$navbar-breakpoint) {
+          background-color: $primary;
+          color: iv.$white;
+        }
+      }
     }
   }
 
