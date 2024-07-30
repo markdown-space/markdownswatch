@@ -114,7 +114,16 @@ export const themes: Theme[] = [
     name: "Simplex",
     description: "Mini and minimalist",
     cssFile: "./css/simplex.css",
+
     route: "/simplex",
+  },
+  {
+    id: "slate",
+    name: "Slate",
+    description: "Shades of gunmetal gray",
+    cssFile: "./css/slate.css",
+    route: "/slate",
+    isDarkMode: true,
   },
   {
     id: "unicorn",

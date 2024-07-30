@@ -1,0 +1,347 @@
+@use "baseStyles.scss";
+@use "./utilities/functions.scss" as fn;
+@use "./utilities/initial-variables.scss" as iv;
+@use "./utilities/derived-variables.scss" as dv;
+@use "./utilities/mixins.scss" as mx;
+
+////////////////////////////////////////////////
+// SLATE
+////////////////////////////////////////////////
+$grey-lighter: #98a4ad;
+$grey-light: #7a8288;
+$grey: #52575c;
+$grey-dark: #3a3f44;
+$grey-darker: #272b30;
+
+$orange: #f89406;
+$green: #62c462;
+$blue: #3298dc;
+$red: #ee5f5b;
+
+$primary: $grey !default;
+$warning: $orange;
+$warning-invert: #fff;
+
+$black-bis: rgb(18, 18, 18);
+
+$dark: darken($grey-darker, 3);
+
+$border: $grey;
+
+$size-7: 0.85rem;
+
+$body-background-color: $grey-darker;
+$background: $grey-dark;
+$footer-background-color: $background;
+$button-background-color: $background;
+$button-border-color: lighten($button-background-color, 15);
+
+$title-color: #aaa;
+$subtitle-color: $grey-light;
+$subtitle-strong-color: $grey-light;
+
+$text: #aaa;
+$text-light: lighten($text, 10);
+$text-strong: darken($text, 5);
+
+$box-shadow: none;
+$box-background-color: $grey-dark;
+
+$card-shadow: none;
+$card-background-color: $grey-darker;
+$card-header-shadow: none;
+$card-header-background-color: rgba($black-bis, 0.2);
+$card-footer-background-color: rgba($black-bis, 0.2);
+
+$link: #fafafa;
+$link-invert: $grey;
+$link-hover: lighten($link, 5);
+$link-focus: darken($link, 5);
+$link-active: darken($link, 15);
+$link-focus-border: darken($link, 5);
+$link-active-border: $link-focus-border;
+
+$button-color: #fafafa;
+
+$input-color: $grey-darker;
+$input-icon-color: $grey;
+$input-icon-active-color: $input-color;
+$input-hover-color: $grey-light;
+$input-disabled-background-color: $grey-lighter;
+$input-disabled-border: $grey-lighter;
+$input-arrow: $primary;
+$label-color: $text;
+
+$table-color: $text;
+$table-head: $grey-lighter;
+$table-background-color: $grey-dark;
+$table-cell-border: 1px solid $grey;
+
+$table-row-hover-background-color: $grey-darker;
+$table-striped-row-even-background-color: $grey-darker;
+$table-striped-row-even-hover-background-color: lighten($grey-darker, 4);
+
+$pagination-border-color: $border;
+
+$navbar-height: 4rem;
+$navbar-background-color: $background;
+$navbar-item-color: rgba($link, 0.5);
+$navbar-item-hover-color: $link;
+$navbar-item-active-color: $link;
+$navbar-item-hover-background-color: darken($grey-dark, 5);
+$navbar-item-active-background-color: darken($grey-dark, 5);
+$navbar-dropdown-background-color: $background;
+$navbar-dropdown-item-hover-color: $link;
+$navbar-dropdown-item-active-color: $link;
+$navbar-dropdown-item-hover-background-color: darken($grey-dark, 5);
+$navbar-dropdown-item-active-background-color: darken($grey-dark, 5);
+
+$dropdown-content-background-color: $background;
+$dropdown-item-color: $text;
+
+$button-disabled-background-color: $grey-lighter;
+
+$tabs-toggle-link-active-background-color: $background;
+$tabs-toggle-link-active-border-color: $border;
+$tabs-toggle-link-active-color: #fff;
+$tabs-boxed-link-active-background-color: $body-background-color;
+
+$file-cta-background-color: $grey-darker;
+
+$progress-bar-background-color: $grey-dark;
+
+$panel-heading-background-color: $grey-dark;
+
+$control-height: 2.5em;
+
+// Lists and maps
+$custom-colors: null !default;
+$custom-shades: null !default;
+$colors: fn.mergeColorMaps(
+  (
+    "white": (
+      iv.$white,
+      iv.$black,
+    ),
+    "black": (
+      iv.$black,
+      iv.$white,
+    ),
+    "light": (
+      iv.$grey-lighter,
+      iv.$black,
+    ),
+    "dark": (
+      iv.$grey-dark,
+      iv.$white,
+    ),
+    "text": (
+      transparent,
+      iv.$white,
+    ),
+    "primary": (
+      $primary,
+      iv.$white,
+    ),
+    "link": (
+      iv.$white,
+      iv.$black,
+    ),
+    "info": (
+      $blue,
+      iv.$white,
+    ),
+    "success": (
+      $green,
+      iv.$white,
+    ),
+    "warning": (
+      $orange,
+      iv.$white,
+    ),
+    "danger": (
+      $red,
+      iv.$white,
+    ),
+  ),
+  $custom-colors
+);
+
+@use "bulma/sass" with (
+  $button-weight: 400,
+  $colors: $colors,
+  $primary: $primary,
+  $text: $text,
+  $border: $border,
+  $body-background-color: $body-background-color,
+  $background: $background,
+  $title-color: $title-color,
+  $subtitle-color: $subtitle-color
+);
+
+// Overrides
+@mixin btn-shadow($color) {
+  background-image: linear-gradient(
+    180deg,
+    lighten($color, 6%) 0%,
+    $color 60%,
+    darken($color, 4%) 100%
+  );
+  filter: none;
+}
+
+@mixin btn-shadow-inverse($color) {
+  background-image: linear-gradient(
+    180deg,
+    darken($color, 8%) 0%,
+    darken($color, 4%) 40%,
+    darken($color, 0%) 100%
+  );
+  filter: none;
+}
+
+.section {
+  background-color: $body-background-color;
+}
+
+.hero {
+  background-color: $grey-dark;
+}
+
+.button {
+  transition: all 200ms ease;
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &.is-#{$name} {
+      &:not(.is-outlined):not(.is-inverted) {
+        @include btn-shadow($color);
+
+        &.is-hovered,
+        &:hover {
+          @include btn-shadow-inverse($color);
+          text-shadow: 1px 1px 1px rgba(iv.$black, 0.3);
+        }
+      }
+    }
+  }
+}
+
+.notification {
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &.is-#{$name} {
+      a:not(.button) {
+        color: $color-invert;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.card {
+  border: 1px solid $border;
+  border-radius: iv.$radius;
+
+  .card-image {
+    img {
+      border-radius: iv.$radius iv.$radius 0 0;
+    }
+  }
+
+  .card-header {
+    border-radius: iv.$radius iv.$radius 0 0;
+  }
+
+  .card-footer,
+  .card-footer-item {
+    border-width: 1px;
+    border-color: $border;
+  }
+}
+
+.navbar {
+  border: 1px solid $dark;
+
+  @include mx.until(iv.$navbar-breakpoint) {
+    .navbar-menu {
+      background-color: inherit;
+    }
+  }
+
+  .navbar-item,
+  .navbar-link {
+    color: rgba(iv.$white, 0.75);
+    border-left: 1px solid rgba(iv.$white, 0.1);
+    border-right: 1px solid rgba(iv.$black, 0.2);
+
+    &.is-active {
+      background-color: rgba(dv.$dark, 0.1);
+    }
+
+    &:hover {
+      color: iv.$white;
+      border-left: 1px solid rgba(iv.$black, 0.2);
+      background-color: rgba(iv.$black, 0.2);
+    }
+  }
+
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &.is-#{$name} {
+      .navbar-item,
+      .navbar-link {
+        color: rgba($color-invert, 0.75);
+
+        &.is-active {
+          color: rgba($color-invert, 1);
+        }
+      }
+    }
+  }
+}
+
+.hero {
+  .navbar {
+    background-color: $background;
+  }
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &.is-#{$name} {
+      .navbar {
+        background: none;
+      }
+    }
+  }
+}
+
+.tabs {
+  a {
+    &:hover {
+      color: $link-hover;
+      border-bottom-color: $link-hover;
+    }
+  }
+
+  // li {
+  //   &.is-active {
+  //     a {
+  //       color: $primary-invert;
+  //       border-bottom-color: $primary-invert;
+  //     }
+  //   }
+  // }
+}
+
+.modal {
+  .modal-card-body {
+    background-color: $body-background-color;
+  }
+}
