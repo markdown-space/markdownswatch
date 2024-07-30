@@ -126,6 +126,14 @@ export const themes: Theme[] = [
     isDarkMode: true,
   },
   {
+    id: "solar",
+    name: "Solar",
+    description: "A spin on Solarized",
+    cssFile: "./css/solar.css",
+    route: "/solar",
+    isDarkMode: true,
+  },
+  {
     id: "unicorn",
     name: "Unicorn",
     description: "Whimsy that makes you barf",
