@@ -110,6 +110,13 @@ export const themes: Theme[] = [
     route: "/sandstone",
   },
   {
+    id: "simplex",
+    name: "Simplex",
+    description: "Mini and minimalist",
+    cssFile: "./css/simplex.css",
+    route: "/simplex",
+  },
+  {
     id: "unicorn",
     name: "Unicorn",
     description: "Whimsy that makes you barf",
