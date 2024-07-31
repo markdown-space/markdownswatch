@@ -1,0 +1,184 @@
+@use "baseStyles.scss";
+@use "./utilities/functions.scss" as fn;
+@use "./utilities/initial-variables.scss" as iv;
+@use "./utilities/derived-variables.scss" as dv;
+@use "./utilities/mixins.scss" as mx;
+
+////////////////////////////////////////////////
+// SPACELAB
+////////////////////////////////////////////////
+$grey-darker: #2d2d2d;
+$grey-dark: #333;
+$grey: #777;
+$grey-light: #999;
+$grey-lighter: #eee;
+
+$orange: #d47500;
+$green: #3cb521;
+$blue: #3399f3;
+$red: #cd0200;
+
+$primary: #446e9b !default;
+$warning: $orange;
+$warning-invert: #fff;
+$link: #807f7f;
+
+$family-sans-serif: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$subtitle-color: $grey;
+
+$navbar-item-active-color: $primary;
+$navbar-item-hover-background-color: transparent;
+
+$bulmaswatch-import-font: true !default;
+
+// Lists and maps
+$custom-colors: null !default;
+$custom-shades: null !default;
+$colors: fn.mergeColorMaps(
+  (
+    "white": (
+      iv.$white,
+      iv.$black,
+    ),
+    "black": (
+      iv.$black,
+      iv.$white,
+    ),
+    "light": (
+      iv.$white-ter,
+      iv.$black,
+    ),
+    "dark": (
+      iv.$grey-dark,
+      iv.$white,
+    ),
+    "text": (
+      transparent,
+      iv.$black,
+    ),
+    "primary": (
+      $primary,
+      iv.$white,
+    ),
+    "link": (
+      $grey,
+      iv.$white,
+    ),
+    "info": (
+      $blue,
+      iv.$white,
+    ),
+    "success": (
+      $green,
+      iv.$white,
+    ),
+    "warning": (
+      $orange,
+      iv.$white,
+    ),
+    "danger": (
+      $red,
+      iv.$white,
+    ),
+  ),
+  $custom-colors
+);
+
+@use "bulma/sass" with (
+  $button-weight: 400,
+  $colors: $colors,
+  $primary: $primary,
+  $family-sans-serif: $family-sans-serif
+);
+
+// Overrides
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700&display=swap");
+
+@mixin btn-shadow($color) {
+  background-image: linear-gradient(
+    180deg,
+    lighten($color, 15%) 0%,
+    $color 60%,
+    darken($color, 4%) 100%
+  );
+  filter: none;
+  border: 1px solid darken($color, 10%);
+}
+
+.button {
+  transition: all 200ms ease;
+  text-shadow: -1px -1px 0 rgba(iv.$black, 0.1);
+
+  &.is-loading {
+    text-shadow: none;
+  }
+
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &.is-#{$name} {
+      &:not(.is-outlined):not(.is-inverted) {
+        @include btn-shadow($color);
+
+        &.is-hovered,
+        &:hover {
+          @include btn-shadow(darken($color, 4%));
+        }
+      }
+    }
+  }
+}
+
+.notification {
+  border: 1px solid dv.$border;
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+    $color-lightning: max((100% - lightness($color)) - 1%, 0%);
+    &.is-#{$name} {
+      background-color: lighten($color, $color-lightning);
+      color: $color;
+      border: 1px solid lighten($color, 30);
+    }
+  }
+}
+
+.progress {
+  border-radius: iv.$radius-large;
+}
+
+.navbar {
+  @include btn-shadow(dv.$light);
+}
+.navbar {
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &.is-#{$name} {
+      @include btn-shadow($color);
+    }
+  }
+}
+
+.hero {
+  .navbar {
+    background-color: dv.$background;
+    @include btn-shadow(dv.$light);
+    border: none;
+  }
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &.is-#{$name} {
+      .navbar {
+        background: $color;
+        @include btn-shadow($color);
+        border: none;
+      }
+    }
+  }
+}

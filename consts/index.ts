@@ -134,6 +134,13 @@ export const themes: Theme[] = [
     isDarkMode: true,
   },
   {
+    id: "spacelab",
+    name: "Spacelab",
+    description: "Silvery and sleek",
+    cssFile: "./css/spacelab.css",
+    route: "/spacelab",
+  },
+  {
     id: "unicorn",
     name: "Unicorn",
     description: "Whimsy that makes you barf",
