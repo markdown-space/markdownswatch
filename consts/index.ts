@@ -149,6 +149,13 @@ export const themes: Theme[] = [
     isDarkMode: true,
   },
   {
+    id: "united",
+    name: "United",
+    description: "Ubuntu orange and unique font",
+    cssFile: "./css/united.css",
+    route: "/united",
+  },
+  {
     id: "unicorn",
     name: "Unicorn",
     description: "Whimsy that makes you barf",

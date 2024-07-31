@@ -1,0 +1,217 @@
+@use "baseStyles.scss";
+@use "./utilities/functions.scss" as fn;
+@use "./utilities/initial-variables.scss" as iv;
+@use "./utilities/derived-variables.scss" as dv;
+@use "./utilities/mixins.scss" as mx;
+
+////////////////////////////////////////////////
+// UNITED
+////////////////////////////////////////////////
+$grey-darker: #222;
+$grey-dark: #333;
+$grey: #777;
+$grey-light: #aea79f;
+$grey-lighter: #ddd;
+
+$orange: #e95420;
+$yellow: #efb73e;
+$green: #38b44a;
+$purple: #772953;
+$red: #df382c;
+$blue: #17a2b8;
+$text: $grey-dark;
+$navbar-dropdown-item-hover-background-color: rgba(iv.$white, 0.12);
+
+$primary: $orange !default;
+$info: $purple;
+
+$yellow-invert: #fff;
+$warning-invert: $yellow-invert;
+
+$family-sans-serif: "Ubuntu", Tahoma, "Helvetica Neue", Arial, sans-serif;
+$body-size: 14px;
+
+$size-7: 0.8575rem;
+
+$subtitle-color: $grey;
+
+$navbar-background-color: #aea79f;
+$navbar-item-color: #fff;
+$navbar-item-hover-color: $navbar-item-color;
+$navbar-item-active-color: $navbar-item-color;
+$navbar-item-hover-background-color: rgba(#000, 0.1);
+$navbar-item-active-background-color: rgba(#000, 0.1);
+$navbar-dropdown-arrow: $navbar-item-color;
+
+$bulmaswatch-import-font: true !default;
+
+$control-height: 2.572em;
+
+// Lists and maps
+$custom-colors: null !default;
+$custom-shades: null !default;
+$colors: fn.mergeColorMaps(
+  (
+    "white": (
+      iv.$white,
+      iv.$black,
+    ),
+    "black": (
+      iv.$black,
+      iv.$white,
+    ),
+    "light": (
+      iv.$white-ter,
+      iv.$black,
+    ),
+    "dark": (
+      iv.$grey-dark,
+      iv.$white,
+    ),
+    "text": (
+      iv.$black,
+      iv.$white,
+    ),
+    "primary": (
+      $primary,
+      iv.$white,
+    ),
+    "link": (
+      $blue,
+      iv.$white,
+    ),
+    "info": (
+      $purple,
+      iv.$white,
+    ),
+    "success": (
+      $green,
+      iv.$white,
+    ),
+    "warning": (
+      $yellow,
+      iv.$white,
+    ),
+    "danger": (
+      $red,
+      iv.$white,
+    ),
+  ),
+  $custom-colors
+);
+
+@use "bulma/sass" with (
+  $button-weight: 400,
+  $colors: $colors,
+  $primary: $primary,
+  $family-sans-serif: $family-sans-serif,
+  $body-size: $body-size,
+  $subtitle-color: $subtitle-color
+);
+
+// Overrides
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap");
+
+.button {
+  &.is-active,
+  &:active {
+    box-shadow: inset 1px 1px 4px rgba($grey-darker, 0.3);
+  }
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &.is-#{$name} {
+      &.is-hovered,
+      &:hover {
+        background-color: darken($color, 10);
+      }
+
+      &.is-active,
+      &:active {
+        box-shadow: inset 1px 0 3px rgba($grey-darker, 0.3);
+        background-color: darken($color, 10);
+      }
+    }
+  }
+}
+
+.input,
+.textarea {
+  box-shadow: none;
+}
+
+.notification {
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &.is-#{$name} {
+      a:not(.button) {
+        color: $color-invert;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.navbar {
+  @include mx.until(iv.$navbar-breakpoint) {
+    .navbar-menu {
+      background-color: inherit;
+    }
+  }
+
+  .navbar-dropdown {
+    .navbar-item {
+      background-color: iv.$white;
+      color: iv.$black !important;
+
+      &.is-active {
+        background-color: $primary;
+        color: iv.$white !important;
+      }
+    }
+  }
+
+  &.is-transparent {
+    background-color: transparent;
+    .navbar-item,
+    .navbar-link {
+      color: $text;
+    }
+  }
+
+  .navbar-link::after {
+    border-color: currentColor;
+  }
+
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &.is-#{$name} {
+      @include mx.until(iv.$navbar-breakpoint) {
+        .navbar-item,
+        .navbar-link {
+          color: $color-invert;
+        }
+      }
+    }
+  }
+}
+
+.hero {
+  .navbar {
+    .navbar-item,
+    .navbar-link {
+      color: inherit;
+    }
+
+    @include mx.from(iv.$navbar-breakpoint) {
+      .navbar-dropdown .navbar-item {
+        color: $text;
+      }
+    }
+  }
+}
