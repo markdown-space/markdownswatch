@@ -141,6 +141,14 @@ export const themes: Theme[] = [
     route: "/spacelab",
   },
   {
+    id: "superhero",
+    name: "Superhero",
+    description: "The brave and the blue",
+    cssFile: "./css/superhero.css",
+    route: "/superhero",
+    isDarkMode: true,
+  },
+  {
     id: "unicorn",
     name: "Unicorn",
     description: "Whimsy that makes you barf",
