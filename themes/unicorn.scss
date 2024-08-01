@@ -1,10 +1,8 @@
-@use "baseStyles.scss";
-
 @use "./utilities/functions.scss" as fn;
 @use "./utilities/initial-variables.scss" as iv;
 @use "./utilities/mixins.scss" as mx;
-@use './unicorn/variables.scss' as v;
-@use './unicorn/fonts.scss' as f;
+@use "./unicorn/variables.scss" as v;
+@use "./unicorn/fonts.scss" as f;
 
 @use "bulma/sass" with (
   $family-primary: f.$family-serif,
@@ -18,6 +16,5 @@
   $radius-small: v.$radius-small,
   $body-size: v.$body-size
 );
-
 
 @import "./unicorn/overrides.scss";
