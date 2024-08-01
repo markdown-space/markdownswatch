@@ -64,6 +64,7 @@
   .navbar-menu {
     background-color: $black-ter;
   }
+
   .navbar-item,
   .navbar-link {
     color: $white;
@@ -73,8 +74,7 @@
     }
     &.is-active,
     &:active {
-      background-color: rgba($black-ter, 0.05);
-      color: $primary;
+      background-color: $primary !important;
     }
   }
   .navbar-burger:hover {
