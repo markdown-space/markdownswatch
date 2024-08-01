@@ -156,6 +156,13 @@ export const themes: Theme[] = [
     route: "/united",
   },
   {
+    id: "yeti",
+    name: "Yeti",
+    description: "A friendly foundation",
+    cssFile: "./css/yeti.css",
+    route: "/yeti",
+  },
+  {
     id: "unicorn",
     name: "Unicorn",
     description: "Whimsy that makes you barf",
