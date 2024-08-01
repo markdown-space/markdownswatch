@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 export const Modal = () => {
   const [isActive, setIsActive] = useState(false);

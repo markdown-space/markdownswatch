@@ -1,4 +1,4 @@
-import React from "react";
+import { Fragment } from "react";
 
 export const Hero = () => {
   const modifiers = [
@@ -17,7 +17,7 @@ export const Hero = () => {
       <h1 className="title">Hero</h1>
       <hr />
       {modifiers.map((m, index) => (
-        <React.Fragment key={index}>
+        <Fragment key={index}>
           <section>
             <div>
               <nav className={`navbar ${m !== "" ? `is-${m}` : ""}`}>
@@ -112,7 +112,7 @@ export const Hero = () => {
             </div>
           </section>
           <br />
-        </React.Fragment>
+        </Fragment>
       ))}
     </section>
   );

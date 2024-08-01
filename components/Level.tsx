@@ -1,5 +1,3 @@
-import React from "react";
-
 export const Level = () => {
   return (
     <section className="section" id="level" style={{ marginTop: "14rem" }}>
