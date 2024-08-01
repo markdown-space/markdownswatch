@@ -1,7 +1,8 @@
 import { serve } from "bun";
 import chalk from "chalk";
 import { Layout } from "components/Layout";
-import { themes } from "consts";
+import { themes } from "themes.json";
+
 import { renderToString } from "react-dom/server";
 
 const server = serve({

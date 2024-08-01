@@ -1,11 +1,12 @@
-import { themes } from "consts";
+import { themes } from "themes.json";
+import { Theme } from "types";
 
 type Props = {
   currentRoute: string;
 };
 
 export const Header = ({ currentRoute }: Props) => {
-  const chunkArray = (array: typeof themes, size: number) => {
+  const chunkArray = (array: Theme[], size: number) => {
     const result = [];
 
     for (let i = 0; i < array.length; i += size) {

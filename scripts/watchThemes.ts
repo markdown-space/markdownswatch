@@ -1,8 +1,8 @@
 import chalk from "chalk";
-import { themes } from "consts";
 import { mkdir, readdir, watch, writeFile } from "fs/promises";
 import { basename, join, relative } from "path";
 import { compile } from "sass";
+import { themes } from "themes.json";
 
 const cwd = process.cwd();
 
