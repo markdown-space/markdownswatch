@@ -225,7 +225,7 @@ export const Buttons = () => {
             </a>
           </p>
           <p className="field">
-            <a className="button">
+            <a className="button mr-1">
               <span className="icon is-small">
                 <i className="fa fa-heading"> </i>
               </span>
@@ -237,12 +237,12 @@ export const Buttons = () => {
             </a>
           </p>
           <p className="field">
-            <a className="button is-medium">
+            <a className="button is-medium  mr-1">
               <span className="icon is-small">
                 <i className="fa fa-heading"> </i>
               </span>
             </a>
-            <a className="button is-medium">
+            <a className="button is-medium  mr-1">
               <span className="icon">
                 <i className="fa fa-heading fa-lg"> </i>
               </span>
@@ -254,12 +254,12 @@ export const Buttons = () => {
             </a>
           </p>
           <p className="field">
-            <a className="button is-large">
+            <a className="button is-large mr-1">
               <span className="icon is-small">
                 <i className="fa fa-heading"> </i>
               </span>
             </a>
-            <a className="button is-large">
+            <a className="button is-large mr-1">
               <span className="icon is-medium">
                 <i className="fa fa-heading fa-lg"> </i>
               </span>
