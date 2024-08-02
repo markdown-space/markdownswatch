@@ -1,27 +1,340 @@
 @use "./utilities/functions.scss" as fn;
 @use "./utilities/initial-variables.scss" as iv;
+@use "./utilities/derived-variables.scss" as dv;
 @use "./utilities/mixins.scss" as mx;
-@use "./cosmo/variables.scss" as v;
-@use "./cosmo/fonts.scss" as f;
 
-@use "bulma/sass" with (
-  $body-size: v.$body-size,
-  // $box-shadow: 0 0 0 1px $grey, //
-  $button-weight: 400,
-  $colors: v.$new-colors,
-  // $control-height: 2.375em, //
-  $danger: v.$red,
-  $family-primary: f.$family-serif,
-  $family-sans-serif: f.$family-serif,
-  $primary: v.$primary,
-  $radius-large: v.$radius-large,
-  $radius-medium: v.$radius-medium,
-  $radius-small: v.$radius-small,
-  $radius: v.$radius,
-  // $subtitle-strong-color: 500, //
-  // $subtitle-weight: 300, //
-  // $title-color: $primary-dark, //
-  // $title-weight: 500
+/////////////////////////////////////////////////
+// COSMO
+/////////////////////////////////////////////////
+
+// Colors
+$black-ter: #222;
+$grey-darker: #333;
+$grey: #dbdbdb;
+$orange: #ff7518;
+$yellow: #f4db00;
+$green: #3fb618;
+$turquoise: #00aba9;
+$blue: #1faeff;
+$purple: #aa40ff;
+$red: #ff2e12;
+
+// Theme Colors
+$primary: #2780e3;
+$primary-dark: darken($primary, 20);
+$warning: $orange;
+$info: $purple;
+
+// Color Inversions
+$orange-invert: #fff;
+$warning-invert: $orange-invert;
+
+// Typography
+$family-serif: "Source Sans Pro", serif !default;
+$family-primary: $family-serif;
+$family-sans-serif: $family-serif;
+$body-size: 15px;
+
+// Border Radius
+$radius: 0;
+$radius-small: 0;
+$radius-medium: 0;
+$radius-large: 0;
+
+// Links
+$link-hover: $primary-dark;
+$link-focus: $primary-dark;
+$link-active: $primary-dark;
+
+// Buttons
+$button-hover-color: $grey-darker;
+$button-focus: $black-ter;
+$button-active-color: $black-ter;
+
+// Misc
+$bulmaswatch-import-font: true !default;
+$box-shadow: 0 0 0 1px $grey;
+$card-shadow: 0 0 0 1px $grey;
+$control-height: 2.6667em;
+$custom-colors: null !default;
+$custom-shades: null !default;
+
+// Color Map
+$colors: fn.mergeColorMaps(
+  (
+    "white": (
+      iv.$white,
+      iv.$black,
+    ),
+    "black": (
+      iv.$black,
+      iv.$white,
+    ),
+    "light": (
+      iv.$white,
+      iv.$black,
+    ),
+    "dark": (
+      iv.$black,
+      iv.$white,
+    ),
+    "text": (
+      dv.$text,
+      iv.$black,
+    ),
+    "primary": (
+      $primary,
+      iv.$white,
+    ),
+    "link": (
+      $blue,
+      iv.$white,
+    ),
+    "info": (
+      $info,
+      iv.$white,
+    ),
+    "success": (
+      $green,
+      iv.$white,
+    ),
+    "warning": (
+      $warning,
+      iv.$white,
+    ),
+    "danger": (
+      $red,
+      iv.$white,
+    ),
+  ),
+  $custom-colors
 );
 
-@import "./cosmo/overrides.scss";
+/////////////////////////////////////////////////
+// CUSTOM VARIABLES
+/////////////////////////////////////////////////
+@use "bulma/sass" with (
+  // Typography
+  $body-size: $body-size,
+  $family-primary: $family-serif,
+  $family-sans-serif: $family-serif,
+
+  // Colors
+  $colors: $colors,
+  $primary: $primary,
+  $danger: $red,
+
+  // Border Radius
+  $radius: $radius,
+  $radius-small: $radius-small,
+  $radius-medium: $radius-medium,
+  $radius-large: $radius-large,
+
+  // Buttons
+  $button-weight: 400
+);
+
+/////////////////////////////////////////////////
+// OVERRIDES
+/////////////////////////////////////////////////
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700&display=swap");
+
+.button {
+  &.is-active,
+  &.is-focused,
+  &:active,
+  &:focus {
+    box-shadow: inset 1px 1px 4px rgba($grey-darker, 0.3);
+  }
+
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &.is-#{$name} {
+      &.is-hovered,
+      &:hover {
+        background-color: darken($color, 10);
+      }
+
+      &.is-active,
+      &.is-focused,
+      &:active,
+      &:focus {
+        box-shadow: inset 1px 0 3px rgba($grey-darker, 0.3);
+        background-color: darken($color, 10);
+      }
+    }
+  }
+}
+
+.input,
+.textarea {
+  box-shadow: none;
+}
+
+.notification {
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &.is-#{$name} {
+      a:not(.button) {
+        color: $color-invert;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.progress {
+  height: dv.$size-small;
+}
+
+.progress,
+.tag {
+  border-radius: $radius;
+}
+
+.navbar:not(.is-transparent) {
+  background-color: $black-ter;
+
+  .navbar-menu {
+    background-color: $black-ter;
+  }
+
+  .navbar-item,
+  .navbar-link {
+    color: iv.$white;
+
+    &.has-dropdown:hover .navbar-link,
+    &:hover {
+      background-color: rgba(iv.$white, 0.05);
+    }
+
+    &.is-active,
+    &:active {
+      background-color: $primary !important;
+    }
+  }
+
+  .navbar-burger:hover {
+    background-color: rgba($black-ter, 0.05);
+  }
+
+  .navbar-link::after {
+    border-color: iv.$white;
+  }
+
+  @include mx.from(iv.$navbar-breakpoint) {
+    .navbar-dropdown .navbar-item {
+      color: iv.$grey-dark;
+
+      &:hover {
+        background-color: rgba($black-ter, 0.05);
+      }
+
+      &.is-active,
+      &:active {
+        color: $primary;
+      }
+
+      strong {
+        color: $grey;
+      }
+    }
+  }
+
+  .navbar-burger {
+    span {
+      background-color: iv.$white;
+    }
+  }
+
+  strong {
+    color: iv.$white-ter;
+  }
+
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &.is-#{$name} {
+      background-color: $color;
+
+      .navbar-menu {
+        background-color: $color;
+      }
+
+      .navbar-item,
+      .navbar-link {
+        @media (max-width: iv.$desktop) {
+          color: $color-invert;
+        }
+
+        &.is-active,
+        &:active {
+          color: $color-invert;
+        }
+      }
+
+      .navbar-burger {
+        &:hover {
+          background-color: darken($color, 5);
+        }
+
+        span {
+          background-color: $color-invert;
+        }
+      }
+    }
+  }
+}
+
+.hero {
+  .navbar:not(.is-transparent) {
+    background-color: $black-ter;
+  }
+
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &.is-#{$name} {
+      .navbar {
+        background: none;
+      }
+
+      .navbar-item,
+      .navbar-link {
+        color: $color-invert;
+
+        &.is-active,
+        &:hover {
+          background-color: darken($color, 10);
+          color: $color-invert;
+        }
+
+        &:after {
+          border-color: $color-invert;
+        }
+      }
+
+      .navbar-menu {
+        background-color: $color;
+      }
+
+      .navbar-burger {
+        span {
+          background-color: $color-invert;
+        }
+      }
+
+      @include mx.from(iv.$navbar-breakpoint) {
+        .navbar-dropdown a.navbar-item {
+          color: iv.$grey-dark;
+        }
+      }
+    }
+  }
+}
