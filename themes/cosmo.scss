@@ -66,16 +66,20 @@ $colors: fn.mergeColorMaps(
       iv.$white,
       iv.$black,
     ),
-    "black": (
-      iv.$black,
-      iv.$white,
-    ),
     "light": (
       iv.$white,
       iv.$black,
     ),
+    "black": (
+      iv.$black,
+      iv.$white,
+    ),
     "dark": (
       iv.$black,
+      iv.$white,
+    ),
+    "link": (
+      $blue,
       iv.$white,
     ),
     "text": (
@@ -84,10 +88,6 @@ $colors: fn.mergeColorMaps(
     ),
     "primary": (
       $primary,
-      iv.$white,
-    ),
-    "link": (
-      $blue,
       iv.$white,
     ),
     "info": (
@@ -113,6 +113,7 @@ $colors: fn.mergeColorMaps(
 /////////////////////////////////////////////////
 // CUSTOM VARIABLES
 /////////////////////////////////////////////////
+
 @use "bulma/sass" with (
   // Typography
   $body-size: $body-size,
@@ -137,6 +138,7 @@ $colors: fn.mergeColorMaps(
 /////////////////////////////////////////////////
 // OVERRIDES
 /////////////////////////////////////////////////
+
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700&display=swap");
 
 .button {

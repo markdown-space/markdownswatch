@@ -1,17 +1,281 @@
-@use "./cyborg/variables.scss" as v;
+@use "./utilities/functions.scss" as fn;
+@use "./utilities/initial-variables.scss" as iv;
+@use "./utilities/derived-variables.scss" as dv;
+@use "./utilities/mixins.scss" as mx;
 
-@use "bulma/sass" with (
-  $body-background-color: v.$body-background-color,
-  $box-shadow: 0 0 0 1px v.$grey,
-  $button-weight: 400,
-  $colors: v.$colors,
-  $primary: v.$primary,
-  $title-color: v.$title-color,
-  $subtitle-color: v.$subtitle-color,
-  $subtitle-strong-color: v.$subtitle-strong-color,
-  $dark: v.$grey-darker,
-  $box-background-color: v.$box-background-color,
-  $grey-darker: v.$grey-darker
+////////////////////////////////////////////////
+// CYBORG
+////////////////////////////////////////////////
+
+// Colors
+$grey-accent: hsl(0, 0%, 14%);
+$grey-darker: hsl(0, 0%, 21%);
+$grey-dark: hsl(0, 0%, 29%);
+$grey: hsl(0, 0%, 48%);
+$grey-light: hsl(0, 0%, 71%);
+$grey-lighter: hsl(0, 0%, 86%);
+$white-ter: #f5f5f5;
+
+// Theme Colors
+$primary: #2a9fd6 !default;
+$primary-light: lighten($primary, 10);
+$link: #3273e2;
+$danger-dark: #f14668;
+
+// Background Colors
+$body-background-color: #000;
+$background: $grey-darker;
+$footer-background-color: $background;
+
+// Text Colors
+$title-color: iv.$white;
+$subtitle-color: $white-ter;
+$subtitle-strong-color: $white-ter;
+$text: iv.$white;
+$text-light: lighten($text, 10);
+$text-strong: darken($text, 5);
+
+// Border Colors
+$border: $grey-dark;
+
+// Box Styles
+$box-color: $text;
+$box-background-color: $grey-accent;
+$box-shadow: none;
+
+// Link Styles
+$link-hover: $primary-light;
+$link-focus: $primary-light;
+$link-active: $primary-light;
+$link-hover-border: $grey-dark;
+$link-active-border: $grey;
+
+// Button Styles
+$button-color: $text;
+$button-background-color: #111;
+$button-border-color: $grey-darker;
+$button-hover-color: $grey-lighter;
+$button-focus: $grey-light;
+$button-active-color: $grey-light;
+
+// Input Styles
+$input-color: $grey-darker;
+$input-icon-color: $grey;
+$input-icon-active-color: $input-color;
+
+// Table Styles
+$table-color: $text;
+$table-head: $grey-lighter;
+$table-background-color: $grey-darker;
+$table-cell-border: 1px solid $grey-dark;
+$table-row-hover-background-color: $grey-dark;
+$table-striped-row-even-background-color: $grey-dark;
+$table-striped-row-even-hover-background-color: lighten($grey-dark, 4);
+
+// Pagination Styles
+$pagination-border-color: $grey-darker;
+$pagination-disabled: $grey-light;
+$pagination-disabled-background-color: $grey-dark;
+
+// Dropdown Styles
+$dropdown-content-background-color: $background;
+$dropdown-item-color: $text;
+
+// Navbar Styles
+$navbar-background-color: $body-background-color;
+$navbar-item-color: iv.$white;
+$navbar-item-hover-color: iv.$white;
+$navbar-item-hover-background-color: rgba(iv.$white, 0.12);
+$navbar-item-active-color: $link;
+$navbar-item-active-background-color: $navbar-item-hover-background-color;
+$navbar-dropdown-background-color: $body-background-color;
+$navbar-dropdown-item-hover-color: iv.$white;
+$navbar-dropdown-item-hover-background-color: $navbar-item-hover-background-color;
+$navbar-dropdown-item-active-background-color: $navbar-item-hover-background-color;
+$navbar-dropdown-arrow: iv.$white;
+
+// Tabs Styles
+$tabs-boxed-link-active-background-color: $body-background-color;
+
+// File Styles
+$file-cta-background-color: $grey-darker;
+
+// Progress Bar Styles
+$progress-bar-background-color: $grey-dark;
+
+// Panel Styles
+$panel-heading-background-color: $grey-dark;
+
+// Custom Colors and Shades
+$custom-colors: null !default;
+$custom-shades: null !default;
+
+// Color Map
+$colors: fn.mergeColorMaps(
+  (
+    "white": (
+      iv.$white,
+      iv.$black,
+    ),
+    "light": (
+      iv.$white,
+      iv.$black,
+    ),
+    "black": (
+      iv.$black,
+      iv.$white,
+    ),
+    "dark": (
+      $grey-darker,
+      iv.$white,
+    ),
+    "link": (
+      $link,
+      iv.$white,
+    ),
+    "text": (
+      $text,
+      iv.$black,
+    ),
+    "primary": (
+      $primary,
+      iv.$white,
+    ),
+    "info": (
+      $primary-light,
+      iv.$white,
+    ),
+    "success": (
+      iv.$green,
+      iv.$white,
+    ),
+    "warning": (
+      iv.$yellow,
+      iv.$black,
+    ),
+    "danger": (
+      $danger-dark,
+      iv.$white,
+    ),
+  ),
+  $custom-colors
 );
 
-@import "./cyborg/overrides.scss";
+/////////////////////////////////////////////////
+// CUSTOM VARIABLES
+/////////////////////////////////////////////////
+
+@use "bulma/sass" with (
+  // Colors
+  $body-background-color: $body-background-color,
+  $colors: $colors,
+  $primary: $primary,
+  $dark: $grey-darker,
+  $grey-darker: $grey-darker,
+
+  // Typography
+  $title-color: $title-color,
+  $subtitle-color: $subtitle-color,
+  $subtitle-strong-color: $subtitle-strong-color,
+
+  // Elements
+  $box-shadow: 0 0 0 1px $grey,
+  $box-background-color: $box-background-color,
+  $button-weight: 400
+);
+
+/////////////////////////////////////////////////
+// OVERRIDES
+/////////////////////////////////////////////////
+
+.hero {
+  background-color: iv.$black-ter;
+}
+
+.delete {
+  background-color: rgba(255, 255, 255, 0.2);
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.label {
+  color: $grey-lighter;
+}
+
+.notification {
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &.is-#{$name} {
+      a:not(.button) {
+        color: $color-invert;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.card {
+  $card-border-color: lighten($grey-darker, 5);
+  box-shadow: none;
+  background-color: $grey-darker;
+
+  .card-header {
+    box-shadow: none;
+    background-color: rgba(iv.$black-bis, 0.2);
+  }
+
+  .card-footer {
+    background-color: rgba(iv.$black-bis, 0.2);
+  }
+
+  .card-footer,
+  .card-footer-item {
+    border-color: $card-border-color;
+  }
+}
+
+.message-header {
+  background-color: iv.$black-ter;
+  color: iv.$white;
+}
+
+.message-body {
+  border-color: iv.$black-ter;
+}
+
+.modal-card-body {
+  background-color: iv.$black-ter;
+}
+
+.modal-card-foot,
+.modal-card-head {
+  border-color: iv.$black-ter;
+}
+
+.navbar {
+  border: 1px solid $grey-darker;
+
+  .navbar-dropdown {
+    border: 1px solid $grey-darker;
+  }
+
+  @include mx.until(iv.$navbar-breakpoint) {
+    .navbar-menu {
+      background-color: $navbar-background-color;
+    }
+  }
+}
+
+.hero {
+  .navbar {
+    &,
+    .navbar-menu,
+    .navbar-dropdown {
+      border: none;
+    }
+  }
+}

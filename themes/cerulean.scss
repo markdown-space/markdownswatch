@@ -1,21 +1,17 @@
 @use "./utilities/functions.scss" as fn;
 @use "./utilities/initial-variables.scss" as iv;
+@use "./utilities/derived-variables.scss" as dv;
 @use "./utilities/mixins.scss" as mx;
 
-// Set your brand colors
-$purple: #8a4d76;
-$pink: #ff0000;
-$brown: #757763;
-$beige-light: #d0d1cd;
-$beige-lighter: #eff0eb;
+/////////////////////////////////////////////////
+// CERULEAN
+/////////////////////////////////////////////////
+
+// Colors
 $white: #fff;
 $white-bis: #fafafa;
-
-$navbar-breakpoint: iv.$desktop !default;
-
-////////////////////////////////////////////////
-// CERULEAN
-////////////////////////////////////////////////
+$grey: #dbdbdb;
+$grey-dark: #999999;
 $orange: #dd5600;
 $yellow: #dab424;
 $green: #73a839;
@@ -23,9 +19,8 @@ $turquoise: #5bc0de;
 $blue: #033c73;
 $purple: #7e5ea3;
 $red: #c71c22;
-$grey: #dbdbdb;
-$grey-dark: #999999;
 
+// Theme Colors
 $primary: #2fa4e7 !default;
 $primary-dark: #317eac;
 $warning: $orange;
@@ -38,27 +33,34 @@ $text: transparent;
 $link: $blue;
 $border: #dbdbdb;
 
+// Typography
 $family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 // Lists and maps
 $custom-colors: null !default;
 $custom-shades: null !default;
-$new-colors: fn.mergeColorMaps(
+
+// Color Map
+$colors: fn.mergeColorMaps(
   (
     "white": (
       iv.$white,
       iv.$black,
     ),
-    "black": (
-      iv.$black,
-      iv.$white,
-    ),
     "light": (
       $light,
       $dark,
     ),
+    "black": (
+      iv.$black,
+      iv.$white,
+    ),
     "dark": (
       $dark,
+      $light,
+    ),
+    "link": (
+      $link,
       $light,
     ),
     "text": (
@@ -67,10 +69,6 @@ $new-colors: fn.mergeColorMaps(
     ),
     "primary": (
       $primary,
-      $light,
-    ),
-    "link": (
-      $link,
       $light,
     ),
     "info": (
@@ -93,25 +91,35 @@ $new-colors: fn.mergeColorMaps(
   $custom-colors
 );
 
-// Path to Bulma's sass folder
+/////////////////////////////////////////////////
+// CUSTOM VARIABLES
+/////////////////////////////////////////////////
+
 @use "bulma/sass" with (
+  // Colors
+  $colors: $colors,
+  $primary: $primary,
+  $danger: $red,
+
+  // Typography
+  $family-sans-serif: $family-sans-serif,
+  $title-color: $primary-dark,
+  $title-weight: 500,
+  $subtitle-weight: 300,
+  $subtitle-strong-color: 500,
+
+  // Elements
   $box-shadow: 0 0 0 1px $grey,
   $button-weight: 400,
-  $colors: $new-colors,
-  $control-height: 2.375em,
-  $danger: $red,
-  $family-sans-serif: $family-sans-serif,
-  $primary: $primary,
-  $subtitle-strong-color: 500,
-  $subtitle-weight: 300,
-  $title-color: $primary-dark,
-  $title-weight: 500
+  $control-height: 2.375em
 );
 
-// Import the Google Font
+/////////////////////////////////////////////////
+// OVERRIDES
+/////////////////////////////////////////////////
+
 @import url("https://fonts.googleapis.com/css?family=Nunito:400,700");
 
-// Overrides
 @mixin btn-gradient($color) {
   background-image: linear-gradient(
     180deg,
@@ -126,7 +134,7 @@ $new-colors: fn.mergeColorMaps(
 }
 
 .button {
-  @each $name, $pair in $new-colors {
+  @each $name, $pair in $colors {
     $color: nth($pair, 1);
     $color-invert: nth($pair, 2);
 
@@ -165,10 +173,11 @@ $new-colors: fn.mergeColorMaps(
 }
 
 .notification {
-  @each $name, $pair in $new-colors {
+  @each $name, $pair in $colors {
     $color: nth($pair, 1);
     $color-invert: nth($pair, 2);
     $color-lightning: max((100% - lightness($color)) - 2%, 0%);
+
     &.is-#{$name} {
       background-color: lighten($color, $color-lightning);
       color: $color;
@@ -185,56 +194,83 @@ $new-colors: fn.mergeColorMaps(
     &:hover {
       background-color: rgba(#000, 0.05);
     }
+
     &.is-active,
     &:active {
       background-color: rgba(#000, 0.1);
     }
   }
+
+  .navbar-dropdown {
+    .columns {
+      .navbar-item {
+        color: iv.$black;
+
+        &.is-active,
+        &:active {
+          background-color: $primary;
+          color: iv.$white;
+        }
+      }
+    }
+  }
+
   .navbar-burger:hover {
     background-color: rgba(#000, 0.05);
   }
+
   .navbar-link::after {
     border-color: $white;
   }
-  @include mx.until($navbar-breakpoint) {
+
+  @include mx.until(iv.$navbar-breakpoint) {
     .navbar-menu {
       background-color: $primary;
       @include btn-gradient($primary);
     }
   }
-  @include mx.from($navbar-breakpoint) {
+
+  @include mx.from(iv.$navbar-breakpoint) {
     .navbar-dropdown .navbar-item {
       color: $grey-dark;
     }
   }
+
   .navbar-burger {
     span {
       background-color: $white;
     }
   }
-  @each $name, $pair in $new-colors {
+
+  @each $name, $pair in $colors {
     $color: nth($pair, 1);
     $color-invert: nth($pair, 2);
+
     &.is-#{$name} {
       @include btn-gradient($color);
-      @include mx.until($navbar-breakpoint) {
+
+      @include mx.until(iv.$navbar-breakpoint) {
         .navbar-menu {
           background-color: $color;
           @include btn-gradient($color);
         }
+
         .navbar-item,
         .navbar-link {
           color: $color-invert;
+
           &.is-active,
           &:hover {
             background-color: darken($color, 2);
             color: $color-invert;
           }
+
           &:after {
             border-color: $color-invert;
           }
         }
       }
+
       .navbar-burger {
         span {
           background-color: $color-invert;
@@ -248,37 +284,45 @@ $new-colors: fn.mergeColorMaps(
   .navbar:not(.is-transparent) {
     @include btn-gradient($primary);
   }
-  @each $name, $pair in $new-colors {
+
+  @each $name, $pair in $colors {
     $color: nth($pair, 1);
     $color-invert: nth($pair, 2);
+
     &.is-#{$name} {
       .navbar {
         @include btn-gradient($color);
       }
+
       .navbar-item,
       .navbar-link {
         color: $color-invert;
+
         &.is-active,
         &:hover {
           background-color: darken($color, 2);
           color: $color-invert;
         }
+
         &:after {
           border-color: $color-invert;
         }
       }
+
       .navbar-burger {
         span {
           background-color: $color-invert;
         }
       }
-      @include mx.until($navbar-breakpoint) {
+
+      @include mx.until(iv.$navbar-breakpoint) {
         .navbar-menu {
           background-color: $color;
           @include btn-gradient($color);
         }
       }
-      @include mx.from($navbar-breakpoint) {
+
+      @include mx.from(iv.$navbar-breakpoint) {
         .navbar-dropdown a.navbar-item:hover {
           color: $color-invert;
         }
