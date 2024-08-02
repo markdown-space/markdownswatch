@@ -1,10 +1,10 @@
 {
   "themes": [
     {
-      "id": "bulma",
+      "id": "default",
       "name": "Default",
-      "description": "It's the default",
-      "cssFile": "./css/bulma.css",
+      "description": "Bulma as-is",
+      "cssFile": "./css/default.css",
       "route": "/"
     },
     {

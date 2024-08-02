@@ -164,7 +164,7 @@ export const Buttons = () => {
             <a className="button is-large"> Large </a>
           </div>
           <div className="buttons">
-            <a className="button is-outlined"> Outlined </a>
+            <a className="button is-link is-outlined"> Outlined </a>
             <a className="button is-primary is-outlined"> Outlined </a>
             <a className="button is-info is-outlined"> Outlined </a>
             <a className="button is-success is-outlined"> Outlined </a>
