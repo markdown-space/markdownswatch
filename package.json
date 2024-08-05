@@ -1,9 +1,12 @@
 {
   "name": "bulma-test",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.ts",
   "type": "module",
   "scripts": {
+    "upload:public": "node upload-public.js && wrangler kv:bulk put kv_bulk_upload.json --namespace-id markdownswatch",
+    "start": "wrangler dev --local --port 3003",
+    "publish": "wrangler publish",
     "watch-themes": "bun run ./scripts/watchThemes.ts",
     "watch-server": "bun --hot run server.ts",
     "dev": "bun run watch-themes & bun run watch-server"
@@ -12,16 +15,25 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@cloudflare/kv-asset-handler": "^0.3.4",
     "bulma": "^1.0.2",
     "chokidar": "^3.6.0",
+    "hono": "^4.5.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "sass": "^1.77.6"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@rollup/plugin-url": "^8.0.2",
     "@types/bun": "latest",
     "chalk": "^5.3.0",
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "rollup": "^2.79.1",
+    "typescript": "^5.5.4"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"

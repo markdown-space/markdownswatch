@@ -1,50 +1,55 @@
-import { serve } from "bun";
-import chalk from "chalk";
+import { Hono } from "hono";
+import { getAssetFromKV, NotFoundError } from "@cloudflare/kv-asset-handler";
+import manifestJSON from "__STATIC_CONTENT_MANIFEST";
 import { Layout } from "components/Layout";
 import { themes } from "themes.json";
-
 import { renderToString } from "react-dom/server";
 
-const server = serve({
-  port: 3000,
-  async fetch(req) {
-    const url = new URL(req.url);
+const assetManifest = JSON.parse(manifestJSON);
+const app = new Hono();
 
-    let path = url.pathname;
+// Define your routes
+app.get("/*", async (c) => {
+  const path = c.req.path;
+  const theme = themes.find((theme) => theme.route === path);
 
-    if (path !== "/" && path.at(-1) === "/") {
-      path = url.pathname.slice(0, -1);
-    }
+  if (!theme) {
+    return c.text("Theme not found", 500);
+  }
 
-    if (path.startsWith("/public/") || path === "/favicon.ico") {
-      const filePath = `.${path}`; // Use the full path
-      const file = Bun.file(filePath);
-      const mimeType = file.type; // Bun can determine the MIME type
+  const content = renderToString(Layout({ theme, currentRoute: path }));
 
-      return new Response(file, {
-        headers: { "Content-Type": mimeType },
-      });
-    }
-
-    if (path.startsWith("/css/")) {
-      const cssFile = path.split("/").pop();
-      return new Response(Bun.file(`./css/${cssFile}`), {
-        headers: { "Content-Type": "text/css" },
-      });
-    }
-
-    const theme = themes.find((theme) => theme.route === path);
-
-    if (!theme) {
-      return new Response("Theme not found", { status: 500 });
-    }
-
-    const content = renderToString(Layout({ theme, currentRoute: path }));
-
-    return new Response(content, {
-      headers: { "Content-Type": "text/html" },
-    });
-  },
+  return c.html(content);
 });
 
-console.log(chalk.white(`Server running at http://localhost:${server.port}`));
+app.onError((err, c) => {
+  console.error(err);
+  return c.text("Internal Server Error", 500);
+});
+
+// Export the fetch handler
+export default {
+  async fetch(request, env, ctx) {
+    try {
+      // Use getAssetFromKV to handle static asset requests
+      return await getAssetFromKV(
+        {
+          request,
+          waitUntil: ctx.waitUntil.bind(ctx),
+        },
+        {
+          ASSET_NAMESPACE: env.MDS_SWATCH_PUBLIC_KV,
+          ASSET_MANIFEST: assetManifest,
+        }
+      );
+    } catch (e) {
+      if (e instanceof NotFoundError) {
+        // If asset is not found, pass the request to the Hono app
+        return app.fetch(request, env, ctx);
+      } else {
+        // If other errors, return a generic 500 error response
+        return new Response("Internal Server Error", { status: 500 });
+      }
+    }
+  },
+};

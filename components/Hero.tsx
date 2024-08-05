@@ -24,7 +24,7 @@ export const Hero = () => {
                 <div className="container" style={{ padding: "0 0.5rem" }}>
                   <div className="navbar-brand">
                     <a className="navbar-item">
-                      <img src="/public/markdown-space-logo.svg" alt="Logo" />
+                      <img src="/markdown-space-logo.svg" alt="Logo" />
                     </a>
                     <span
                       className="navbar-burger burger"
