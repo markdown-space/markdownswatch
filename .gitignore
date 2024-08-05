@@ -39,3 +39,6 @@ sitemap.xml
 *.css
 *.css.map
 css/
+
+
+.wrangler/*

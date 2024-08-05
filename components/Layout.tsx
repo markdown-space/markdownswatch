@@ -42,7 +42,7 @@ export const Layout = ({ theme, currentRoute }: Props) => {
           href="https://unpkg.com/@fortawesome/fontawesome-free@5.13.0/css/all.css"
           rel="stylesheet"
         />
-        <link rel="stylesheet" href={`/css/${theme.cssFile}`} />
+        <link rel="stylesheet" href={`${theme.cssFile}`} />
       </head>
       <body>
         <Header currentRoute={currentRoute} />

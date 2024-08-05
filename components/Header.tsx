@@ -1,4 +1,4 @@
-import { themes } from "themes.json";
+import { themes } from "../themes.json";
 import { Theme } from "types";
 
 type Props = {
@@ -24,7 +24,7 @@ export const Header = ({ currentRoute }: Props) => {
         <div className="navbar-start">
           <a className="navbar-item" href="/">
             <img
-              src="/public/markdown-space-logo.svg"
+              src="/markdown-space-logo.svg"
               alt="logo"
               className="logo"
               style={{ paddingRight: "0.5rem" }}
