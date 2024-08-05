@@ -1,109 +1,268 @@
 @use "./utilities/functions.scss" as fn;
-@use "./litera/variables.scss" as v;
+@use "./utilities/initial-variables.scss" as iv;
 @use "./utilities/derived-variables.scss" as dv;
+@use "./utilities/mixins.scss" as mx;
 
-@use "bulma/sass" with (
-  $subtitle-color: v.$subtitle-color,
-  $body-size: v.$body-size,
-  //initial variables
-  $black: v.$black,
-  $black-bis: v.$black-bis,
-  $black-ter: v.$black-ter,
-  $grey-darker: v.$grey-darker,
-  $grey-dark: v.$grey-dark,
-  $grey: v.$grey,
-  $grey-light: v.$grey-light,
-  $grey-lighter: v.$grey-lighter,
-  $grey-lightest: v.$grey-lightest,
-  $white-ter: v.$white-ter,
-  $white-bis: v.$white-bis,
-  $white: v.$white,
-  $orange: v.$orange,
-  $yellow: v.$yellow,
-  $green: v.$green,
-  $turquoise: v.$turquoise,
-  $cyan: v.$cyan,
-  $blue: v.$blue,
-  $purple: v.$purple,
-  $red: v.$red,
-  $family-sans-serif: v.$family-sans-serif,
-  $family-monospace: v.$family-monospace,
-  $render-mode: v.$render-mode,
-  $size-1: v.$size-1,
-  $size-2: v.$size-2,
-  $size-3: v.$size-3,
-  $size-4: v.$size-4,
-  $size-5: v.$size-5,
-  $size-6: v.$size-6,
-  $size-7: v.$size-7,
-  $weight-light: v.$weight-light,
-  $weight-normal: v.$weight-normal,
-  $weight-medium: v.$weight-medium,
-  $weight-semibold: v.$weight-semibold,
-  $weight-bold: v.$weight-bold,
-  $weight-extrabold: v.$weight-extrabold,
-  $block-spacing: v.$block-spacing,
-  $aspect-ratios: v.$aspect-ratios,
-  $gap: v.$gap,
-  $tablet: v.$tablet,
-  $desktop: v.$desktop,
-  $widescreen: v.$widescreen,
-  $widescreen-enabled: v.$widescreen-enabled,
-  $fullhd: v.$fullhd,
-  $fullhd-enabled: v.$fullhd-enabled,
-  $breakpoints: v.$breakpoints,
-  $easing: v.$easing,
-  $radius-small: v.$radius-small,
-  $radius: v.$radius,
-  $radius-medium: v.$radius-medium,
-  $radius-large: v.$radius-large,
-  $radius-rounded: v.$radius-rounded,
-  $speed: v.$speed,
-  $variable-columns: v.$variable-columns,
-  $rtl: v.$rtl,
-  $class-prefix: v.$class-prefix,
-  $cssvars-prefix: v.$cssvars-prefix,
-  $helpers-prefix: v.$helpers-prefix,
-  $helpers-has-prefix: v.$helpers-has-prefix,
+/////////////////////////////////////////////////
+// LITERA
+/////////////////////////////////////////////////
 
-  //derived variables$scheme-main: dv.$scheme-main,
-  $scheme-main-bis: dv.$scheme-main-bis,
-  $scheme-main-ter: dv.$scheme-main-ter,
-  $scheme-invert: dv.$scheme-invert,
-  $scheme-invert-bis: dv.$scheme-invert-bis,
-  $scheme-invert-ter: dv.$scheme-invert-ter,
-  $text: dv.$text,
-  $text-invert: dv.$text-invert,
-  $text-weak: dv.$text-weak,
-  $text-strong: dv.$text-strong,
-  $primary: dv.$primary,
-  $info: dv.$info,
-  $success: dv.$success,
-  $warning: dv.$warning,
-  $danger: dv.$danger,
-  $light: dv.$light,
-  $dark: dv.$dark,
-  $link: dv.$link,
-  $background: dv.$background,
-  $border: dv.$border,
-  $border-weak: dv.$border-weak,
-  $code: dv.$code,
-  $code-background: dv.$code-background,
-  $pre: dv.$pre,
-  $pre-background: dv.$pre-background,
-  $family-primary: dv.$family-primary,
-  $family-secondary: dv.$family-secondary,
-  $family-code: dv.$family-code,
-  $size-small: dv.$size-small,
-  $size-normal: dv.$size-normal,
-  $size-medium: dv.$size-medium,
-  $size-large: dv.$size-large,
-  $shadow-color: dv.$shadow-color,
-  $custom-colors: dv.$custom-colors,
-  $custom-shades: dv.$custom-shades,
-  $colors: dv.$colors,
-  $shades: dv.$shades,
-  $sizes: dv.$sizes
+// Color Palette
+$grey-darker: #363636;
+$grey-dark: #373a3c;
+$grey: #55595c;
+$grey-light: #818a91;
+$grey-lighter: #d9dee2;
+$orange: #f0ad4e;
+$yellow: #ffd500;
+$green: #02b875;
+$blue: #45b2d3;
+$red: #d9534f;
+
+// Theme Colors
+$text: $grey-dark;
+$link: #4582ec !default;
+$primary: $blue !default;
+$danger: $orange;
+$subtitle-color: $grey;
+
+// Typography
+$family-heading: "Raleway", "Lucida Grande", "Lucida Sans Unicode",
+  "Lucida Sans", Geneva, Arial, sans-serif;
+$family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+$body-size: 15px;
+
+// Layout
+$navbar-height: 5rem;
+$control-height: 2.273em;
+
+// Navbar Styles
+$navbar-item-hover-color: $link;
+$navbar-item-hover-background-color: transparent;
+$navbar-item-active-color: $link;
+$navbar-item-active-background-color: transparent;
+$navbar-dropdown-item-hover-color: $link;
+$navbar-dropdown-item-hover-background-color: transparent;
+$navbar-dropdown-item-active-color: $link;
+$navbar-dropdown-item-active-background-color: transparent;
+
+// Elements
+$box-shadow: 0 0 1px $grey-light;
+
+// Misc
+$bulmaswatch-import-font: true !default;
+
+// Custom Colors and Shades
+$custom-colors: null !default;
+$custom-shades: null !default;
+
+// Color Map
+$colors: fn.mergeColorMaps(
+  (
+    "white": (
+      iv.$white,
+      iv.$black,
+    ),
+    "black": (
+      iv.$black,
+      iv.$white,
+    ),
+    "light": (
+      iv.$white,
+      iv.$black,
+    ),
+    "dark": (
+      $grey-darker,
+      iv.$white,
+    ),
+    "link": (
+      #4582ec,
+      iv.$white,
+    ),
+    "text": (
+      $text,
+      iv.$black,
+    ),
+    "primary": (
+      $primary,
+      iv.$white,
+    ),
+    "info": (
+      #3298dc,
+      iv.$white,
+    ),
+    "success": (
+      $green,
+      iv.$white,
+    ),
+    "warning": (
+      $yellow,
+      iv.$black,
+    ),
+    "danger": (
+      $orange,
+      iv.$white,
+    ),
+  ),
+  $custom-colors
 );
 
-@import "./litera/overrides.scss";
+/////////////////////////////////////////////////
+// CUSTOM VARIABLES
+/////////////////////////////////////////////////
+@use "bulma/sass" with (
+  // Colors
+  $primary: $primary,
+  $colors: $colors,
+
+  // Typography
+  $body-size: $body-size,
+  $family-sans-serif: $family-heading,
+  $family-serif: $family-serif,
+  $subtitle-color: $subtitle-color,
+
+  // Elements
+  $box-shadow: $box-shadow,
+  $button-weight: 400,
+  $control-height: $control-height
+);
+
+/////////////////////////////////////////////////
+// OVERRIDES
+/////////////////////////////////////////////////
+
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap");
+
+a {
+  transition: all 200ms ease;
+}
+
+.button {
+  padding-left: 1em;
+  padding-right: 1em;
+  border-radius: 50px;
+  font-family: iv.$family-sans-serif;
+
+  &.is-small {
+    border-radius: 40px;
+    font-size: 0.85rem;
+  }
+}
+
+.button {
+  transition: all 200ms ease;
+
+  &.is-active,
+  &.is-focused,
+  &:active,
+  &:focus {
+    box-shadow: 0 0 0 2px rgba(iv.$button-active-border-color, 0.3);
+  }
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &.is-#{$name} {
+      &.is-active,
+      &.is-focused,
+      &:active,
+      &:focus {
+        box-shadow: 0 0 0 2px rgba($color, 0.3);
+      }
+    }
+  }
+}
+
+.content {
+  font-size: 1.1rem;
+  font-family: $family-serif;
+
+  .button {
+    font-family: iv.$family-sans-serif;
+  }
+}
+
+.card-header-title,
+.menu-label,
+.message-header,
+.modal-card-title,
+.panel-heading,
+.subtitle,
+.title,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  font-family: $family-heading;
+}
+
+blockquote {
+  font-style: italic;
+}
+
+.input,
+.textarea {
+  transition: all 200ms ease;
+  box-shadow: none;
+}
+
+.notification {
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &.is-#{$name} {
+      a:not(.button) {
+        color: $color-invert;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.navbar {
+  border: 1px solid dv.$border;
+}
+
+.navbar:not(.is-transparent) {
+  font-family: iv.$family-sans-serif;
+
+  .navbar-dropdown {
+    .columns {
+      .navbar-item {
+        color: iv.$black;
+
+        &:hover {
+          background-color: transparent;
+          color: $primary;
+        }
+
+        &.is-active,
+        &:active {
+          background-color: $primary;
+          color: iv.$white;
+        }
+      }
+    }
+  }
+}
+
+.hero {
+  .navbar {
+    border: none;
+    box-shadow: 0 1px 0 rgba(dv.$border, 0.25);
+  }
+}
+
+.card {
+  $card-border-color: $grey-darker;
+  box-shadow: 0 0 1px $grey-light;
+
+  .card-header {
+    box-shadow: none;
+    border-bottom: 1px solid $grey-lighter;
+  }
+}
