@@ -1,17 +1,186 @@
-@use "./journal/variables.scss" as v;
-@use "./journal/fonts.scss" as f;
+@use "./utilities/functions.scss" as fn;
+@use "./utilities/initial-variables.scss" as iv;
+@use "./utilities/derived-variables.scss" as dv;
+@use "./utilities/mixins.scss" as mx;
 
-@use "bulma/sass" with (
-  $family-primary: f.$family-serif,
-  $family-sans-serif: f.$family-serif,
-  $primary: v.$primary,
-  $danger: v.$red,
-  $button-weight: 400,
-  $colors: v.$colors,
-  $title-weight: 500,
-  $radius: v.$radius,
-  $radius-small: v.$radius-small,
-  $body-size: v.$body-size
+/////////////////////////////////////////////////
+// JOURNAL
+/////////////////////////////////////////////////
+
+// Colors
+$grey-darker: #363636;
+$grey-dark: #4a4a4a;
+$grey: #7a7a7a;
+$grey-light: #b5b5b5;
+$grey-lighter: #dbdbdb;
+$orange: #f57a00;
+$yellow: #f5e625;
+$green: #22b24c;
+$turquoise: #00aba9;
+$blue: #369;
+$purple: #aa40ff;
+$red: #ff2e12;
+
+// Theme Colors
+$primary: #eb6864;
+$danger: $orange;
+$text: $grey-dark;
+
+// Typography
+$family-serif: "News Cycle", "Arial Narrow Bold", sans-serif;
+
+// Layout
+$radius: 4px;
+$control-height: 2.5em;
+
+// Navbar Styles
+$navbar-item-hover-color: $primary;
+$navbar-item-active-color: $primary;
+$navbar-dropdown-item-hover-color: $primary;
+$navbar-dropdown-item-active-color: $primary;
+
+// Custom Colors and Shades
+$custom-colors: null !default;
+$custom-shades: null !default;
+
+// Color Map
+$colors: fn.mergeColorMaps(
+  (
+    "white": (
+      iv.$white,
+      iv.$black,
+    ),
+    "black": (
+      iv.$black,
+      iv.$white,
+    ),
+    "light": (
+      iv.$white,
+      iv.$black,
+    ),
+    "dark": (
+      $grey-darker,
+      iv.$white,
+    ),
+    "link": (
+      $blue,
+      iv.$white,
+    ),
+    "text": (
+      $text,
+      iv.$black,
+    ),
+    "primary": (
+      $primary,
+      iv.$white,
+    ),
+    "info": (
+      #3298dc,
+      iv.$white,
+    ),
+    "success": (
+      $green,
+      iv.$white,
+    ),
+    "warning": (
+      $yellow,
+      iv.$black,
+    ),
+    "danger": (
+      $orange,
+      iv.$white,
+    ),
+  ),
+  $custom-colors
 );
 
-@import "./journal/overrides.scss";
+/////////////////////////////////////////////////
+// CUSTOM VARIABLES
+/////////////////////////////////////////////////
+
+@use "bulma/sass" with (
+  // Typography
+  $family-primary: $family-serif,
+  $family-sans-serif: $family-serif,
+  $title-weight: 500,
+  $text: $text,
+
+  // Colors
+  $primary: $primary,
+  $colors: $colors,
+
+  // Layout
+  $radius: $radius,
+
+  // Elements
+  $button-weight: 400
+);
+
+/////////////////////////////////////////////////
+// OVERRIDES
+/////////////////////////////////////////////////
+
+@import url("https://fonts.googleapis.com/css?family=News+Cycle:400,700&display=swap");
+
+.button {
+  font-weight: 700;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.card-header-title,
+.navbar-item,
+.navbar-link,
+.menu-label,
+.message-header,
+.modal-card-title,
+.panel-heading,
+.subtitle,
+.title,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+.notification {
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &.is-#{$name} {
+      a:not(.button) {
+        color: $color-invert;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.navbar:not(.is-transparent) {
+  .navbar-dropdown {
+    .columns {
+      .navbar-item {
+        color: iv.$black;
+
+        &:hover {
+          background-color: rgba(#000, 0.1);
+          color: $primary;
+        }
+
+        &.is-active,
+        &:active {
+          background-color: $primary;
+          color: iv.$white;
+        }
+      }
+    }
+  }
+}
+
+.panel-heading {
+  background-color: #ededed;
+}
