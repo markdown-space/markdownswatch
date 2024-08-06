@@ -1,18 +1,23 @@
 {
-  "name": "bulma-test",
-  "version": "1.0.0",
+  "name": "@markdownspace/markdownswatch",
+  "version": "1.0.3",
   "main": "server.ts",
+  "readme": "README.md",
+  "files": [
+    "css"
+  ],
   "type": "module",
   "scripts": {
     "start": "wrangler dev --local --port 3003",
-    "publish": "wrangler publish",
+    "publish": "npm publish --access public",
+    "deploy": "wrangler publish",
     "watch-themes": "bun run ./scripts/watchThemes.ts",
     "watch-server": "bun --hot run server.ts",
     "dev": "bun run watch-themes & bun run watch-server"
   },
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "CSS themes using Bulma for Markdown Space",
   "dependencies": {
     "@cloudflare/kv-asset-handler": "^0.3.4",
     "bulma": "^1.0.2",
