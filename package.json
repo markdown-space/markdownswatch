@@ -4,7 +4,6 @@
   "main": "server.ts",
   "type": "module",
   "scripts": {
-    "upload:public": "node upload-public.js && wrangler kv:bulk put kv_bulk_upload.json --namespace-id markdownswatch",
     "start": "wrangler dev --local --port 3003",
     "publish": "wrangler publish",
     "watch-themes": "bun run ./scripts/watchThemes.ts",
