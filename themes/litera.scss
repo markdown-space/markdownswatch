@@ -110,6 +110,7 @@ $colors: fn.mergeColorMaps(
 /////////////////////////////////////////////////
 // CUSTOM VARIABLES
 /////////////////////////////////////////////////
+
 @use "bulma/sass" with (
   // Colors
   $primary: $primary,
@@ -118,7 +119,6 @@ $colors: fn.mergeColorMaps(
   // Typography
   $body-size: $body-size,
   $family-sans-serif: $family-heading,
-  $family-serif: $family-serif,
   $subtitle-color: $subtitle-color,
 
   // Elements
