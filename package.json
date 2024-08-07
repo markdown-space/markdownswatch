@@ -8,9 +8,7 @@
   ],
   "type": "module",
   "scripts": {
-    "start": "wrangler dev --local --port 3003",
     "publish": "npm publish --access public",
-    "deploy": "wrangler publish",
     "watch-themes": "bun run ./scripts/watchThemes.ts",
     "watch-server": "bun --hot run server.ts",
     "dev": "bun run watch-themes & bun run watch-server"
