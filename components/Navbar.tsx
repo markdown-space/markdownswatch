@@ -31,7 +31,7 @@ export const Navbar = () => {
           <div className="navbar-brand">
             <a className="navbar-item" href="https://bulma.io">
               <img
-                src="/markdown-space-logo.svg"
+                src="/public/markdown-space-logo.svg"
                 alt="Bulma: a modern CSS framework based on Flexbox"
                 height="28"
               />
@@ -220,7 +220,7 @@ export const Navbar = () => {
         <div className="navbar-brand">
           <a className="navbar-item" href="https://bulma.io">
             <img
-              src="/markdown-space-logo.svg"
+              src="/public/markdown-space-logo.svg"
               alt="Bulma: a modern CSS framework based on Flexbox"
               width="112"
               height="28"

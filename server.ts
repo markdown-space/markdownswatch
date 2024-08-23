@@ -16,7 +16,7 @@ const server = serve({
       path = url.pathname.slice(0, -1);
     }
 
-    if (path.startsWith("/public/") || path === "/favicon.ico") {
+    if (path.startsWith("/public/")) {
       const filePath = `.${path}`; // Use the full path
       const file = Bun.file(filePath);
       const mimeType = file.type; // Bun can determine the MIME type

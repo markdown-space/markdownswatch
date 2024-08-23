@@ -1,5 +1,5 @@
-import { themes } from "../themes.json";
 import { Theme } from "types";
+import { themes } from "../themes.json";
 
 type Props = {
   currentRoute: string;
@@ -24,7 +24,7 @@ export const Header = ({ currentRoute }: Props) => {
         <div className="navbar-start">
           <a className="navbar-item" href="/">
             <img
-              src="/markdown-space-logo.svg"
+              src="/public/markdown-space-logo.svg"
               alt="logo"
               className="logo"
               style={{ paddingRight: "0.5rem" }}

@@ -43,6 +43,7 @@ export const Layout = ({ theme, currentRoute }: Props) => {
           rel="stylesheet"
         />
         <link rel="stylesheet" href={`${theme.cssFile}`} />
+        <link rel="icon" href="/public/favicon.ico" />
       </head>
       <body>
         <Header currentRoute={currentRoute} />
