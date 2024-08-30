@@ -5,21 +5,24 @@
       "name": "Default",
       "description": "Bulma as-is",
       "cssFile": "./css/default.css",
-      "route": "/"
+      "route": "/",
+      "dataTheme": "user"
     },
     {
       "id": "cerulean",
       "name": "Cerulean",
       "description": "A calm blue sky",
       "cssFile": "./css/cerulean.css",
-      "route": "/cerulean"
+      "route": "/cerulean",
+      "dataTheme": "light"
     },
     {
       "id": "cosmo",
       "name": "Cosmo",
       "description": "An ode to Metro",
       "cssFile": "./css/cosmo.css",
-      "route": "/cosmo"
+      "route": "/cosmo",
+      "dataTheme": "light"
     },
     {
       "id": "cyborg",
@@ -27,7 +30,8 @@
       "description": "Jet black and electric blue",
       "cssFile": "./css/cyborg.css",
       "route": "/cyborg",
-      "isDarkMode": true
+      "isDarkMode": true,
+      "dataTheme": "dark"
     },
     {
       "id": "darkly",
@@ -35,56 +39,64 @@
       "description": "Flatly in night-mode",
       "cssFile": "./css/darkly.css",
       "route": "/darkly",
-      "isDarkMode": true
+      "isDarkMode": true,
+      "dataTheme": "dark"
     },
     {
       "id": "flatly",
       "name": "Flatly",
       "description": "Flat and thick",
       "cssFile": "./css/flatly.css",
-      "route": "/flatly"
+      "route": "/flatly",
+      "dataTheme": "light"
     },
     {
       "id": "journal",
       "name": "Journal",
       "description": "Crisp like a new sheet of paper",
       "cssFile": "./css/journal.css",
-      "route": "/journal"
+      "route": "/journal",
+      "dataTheme": "light"
     },
     {
       "id": "litera",
       "name": "Litera",
       "description": "The medium is the message",
       "cssFile": "./css/litera.css",
-      "route": "/litera"
+      "route": "/litera",
+      "dataTheme": "light"
     },
     {
       "id": "lumen",
       "name": "Lumen",
       "description": "Light and shadow",
       "cssFile": "./css/lumen.css",
-      "route": "/lumen"
+      "route": "/lumen",
+      "dataTheme": "light"
     },
     {
       "id": "lux",
       "name": "Lux",
       "description": "A touch of class",
       "cssFile": "./css/lux.css",
-      "route": "/lux"
+      "route": "/lux",
+      "dataTheme": "light"
     },
     {
       "id": "materia",
       "name": "Materia",
       "description": "Material is the metaphor",
       "cssFile": "./css/materia.css",
-      "route": "/materia"
+      "route": "/materia",
+      "dataTheme": "light"
     },
     {
       "id": "minty",
       "name": "Minty",
       "description": "A fresh feel",
       "cssFile": "./css/minty.css",
-      "route": "/minty"
+      "route": "/minty",
+      "dataTheme": "light"
     },
     {
       "id": "nuclear",
@@ -92,28 +104,32 @@
       "description": "A dark theme with irradiated highlights",
       "cssFile": "./css/nuclear.css",
       "route": "/nuclear",
-      "isDarkMode": true
+      "isDarkMode": true,
+      "dataTheme": "dark"
     },
     {
       "id": "pulse",
       "name": "Pulse",
       "description": "A trace of purple",
       "cssFile": "./css/pulse.css",
-      "route": "/pulse"
+      "route": "/pulse",
+      "dataTheme": "light"
     },
     {
       "id": "sandstone",
       "name": "Sandstone",
       "description": "A touch of warmth",
       "cssFile": "./css/sandstone.css",
-      "route": "/sandstone"
+      "route": "/sandstone",
+      "dataTheme": "light"
     },
     {
       "id": "simplex",
       "name": "Simplex",
       "description": "Mini and minimalist",
       "cssFile": "./css/simplex.css",
-      "route": "/simplex"
+      "route": "/simplex",
+      "dataTheme": "light"
     },
     {
       "id": "slate",
@@ -121,7 +137,8 @@
       "description": "Shades of gunmetal gray",
       "cssFile": "./css/slate.css",
       "route": "/slate",
-      "isDarkMode": true
+      "isDarkMode": true,
+      "dataTheme": "dark"
     },
     {
       "id": "solar",
@@ -129,14 +146,16 @@
       "description": "A spin on Solarized",
       "cssFile": "./css/solar.css",
       "route": "/solar",
-      "isDarkMode": true
+      "isDarkMode": true,
+      "dataTheme": "dark"
     },
     {
       "id": "spacelab",
       "name": "Spacelab",
       "description": "Silvery and sleek",
       "cssFile": "./css/spacelab.css",
-      "route": "/spacelab"
+      "route": "/spacelab",
+      "dataTheme": "light"
     },
     {
       "id": "superhero",
@@ -144,28 +163,32 @@
       "description": "The brave and the blue",
       "cssFile": "./css/superhero.css",
       "route": "/superhero",
-      "isDarkMode": true
+      "isDarkMode": true,
+      "dataTheme": "dark"
     },
     {
       "id": "united",
       "name": "United",
       "description": "Ubuntu orange and unique font",
       "cssFile": "./css/united.css",
-      "route": "/united"
+      "route": "/united",
+      "dataTheme": "light"
     },
     {
       "id": "yeti",
       "name": "Yeti",
       "description": "A friendly foundation",
       "cssFile": "./css/yeti.css",
-      "route": "/yeti"
+      "route": "/yeti",
+      "dataTheme": "light"
     },
     {
       "id": "unicorn",
       "name": "Unicorn",
       "description": "Whimsy that makes you barf",
       "cssFile": "./css/unicorn.css",
-      "route": "/unicorn"
+      "route": "/unicorn",
+      "dataTheme": "light"
     }
   ]
 }
